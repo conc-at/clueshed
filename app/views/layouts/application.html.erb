@@ -2,13 +2,37 @@
 <html>
 <head>
   <title>Clueshed</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container">
+    <%= yield %>
+  </div>
+  <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Home', '/' %></li>
+          <li><%= link_to 'Contribs', Contrib %></li>
+          <li><%= link_to 'Interests', Interest %></li>
+          <%= yield :footer_links %>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Get your own', 'https://github.com/conc-at/clueshed' %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </body>
 </html>
