@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @contrib.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @contrib.description %>
+</p>
+
+<%= link_to 'Edit', edit_contrib_path(@contrib) %> |
+<%= link_to 'Back', contribs_path %>

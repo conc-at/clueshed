@@ -1,0 +1,2 @@
+module ContribsHelper
+end
