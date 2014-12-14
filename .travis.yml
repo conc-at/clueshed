@@ -3,3 +3,6 @@ rvm:
 - 2.0.0
 script:
 - bundle exec rake test
+env:
+  global:
+    secure: H/cTACa1EL+TMAFiSxqGI7C3IGDQs35klw3ej9v0zcCXPVPit7UhkEej2knVniwPt6nllubSe6LZ1LH/4m0y3nkePHvpy8ciEAvuVqk/JhnkbEZi+Gk8Si1W3ubdXgz6VyYt20EXIaegUuHr8471sTAtPmCPag/bRYcvvxFlS7Q=
