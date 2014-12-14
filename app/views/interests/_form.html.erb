@@ -1,25 +1,11 @@
-<%= form_for(@interest) do |f| %>
-  <% if @interest.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@interest.errors.count, "error") %> prohibited this interest from being saved:</h2>
-
-      <ul>
-      <% @interest.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= simple_form_for @interest, html: { class: 'form-vertical' } do |f| %>
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.input :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.input :description, as: :text %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button :submit %>
   </div>
 <% end %>

@@ -8,6 +8,7 @@ gem 'sqlite3'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'sass-rails', '~> 4.0.3'
+gem 'simple_form'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
