@@ -2,32 +2,28 @@
 
 <div class="row">
   <div class="col-md-6">
-    <ul class="list-group">
-      <% @contribs.each do |contrib| %>
-        <li class="list-group-item">
-          <%= link_to contrib.title, contrib %>
-        </li>
-      <% end %>
-      <li class="list-group-item">
-        <%= simple_form_for @contrib do |f| %>
-          <%= f.text_field :title, placeholder: 'Add your contrib' %>
+    <div class="list-group">
+      <div class="list-group-item">
+        <%= simple_form_for @interest do |f| %>
+          <%= f.text_field :title, placeholder: 'What are you intersted in?' %>
         <% end %>
-      </li>
-    </ul>
+      </div>
+      <% @interests.each do |interest| %>
+        <%= link_to interest.title, interest, class: 'list-group-item' %>
+      <% end %>
+    </div>
   </div>
   <div class="col-md-6">
-    <ul class="list-group">
-      <% @interests.each do |interest| %>
-        <li class="list-group-item">
-          <%= link_to interest.title, interest %>
-        </li>
-      <% end %>
-      <li class="list-group-item">
-        <%= simple_form_for @interest do |f| %>
-          <%= f.text_field :title, placeholder: 'Add your interest' %>
+    <div class="list-group">
+      <div class="list-group-item">
+        <%= simple_form_for @contrib do |f| %>
+          <%= f.text_field :title, placeholder: 'What could you contribute?'%>
         <% end %>
-      </li>
-    </ul>
+      </div>
+      <% @contribs.each do |contrib| %>
+        <%= link_to contrib.title, contrib, class: 'list-group-item' %>
+      <% end %>
+    </div>
   </div>
 </div>
 
