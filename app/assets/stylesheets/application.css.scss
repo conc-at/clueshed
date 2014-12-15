@@ -18,3 +18,14 @@ $body-bg: #f7f7f7;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/l/font?kit=IdY6kW8qAN40x_75Y1PB98d9j29jiG2T_Z4Pi_um3Ts) format('woff2');
+}
+
+body {
+  padding-top: 40px;
+}
