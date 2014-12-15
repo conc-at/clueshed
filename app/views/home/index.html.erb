@@ -1,32 +1,33 @@
-<div class="row">
-  <div class="col-md-12 text-center page-header">
-    <h1 class="brand">ClueShed</h1>
-    <h2><%= link_to 'Contribs', Contrib %> and <%= link_to 'Interests', Interest %></h2>
-    <p class="lead">This is your event. You decide what will happen.</p>
-  </div>
-</div>
+<%= render 'header' %>
 
 <div class="row">
   <div class="col-md-6">
-    <%= render 'contribs/form' %>
     <ul class="list-group">
       <% @contribs.each do |contrib| %>
         <li class="list-group-item">
           <%= link_to contrib.title, contrib %>
         </li>
       <% end %>
+      <li class="list-group-item">
+        <%= simple_form_for @contrib do |f| %>
+          <%= f.text_field :title, placeholder: 'Add your contrib' %>
+        <% end %>
+      </li>
     </ul>
   </div>
   <div class="col-md-6">
-      <%= render 'interests/form' %>
-      <ul class="list-group">
-        <% @interests.each do |interest| %>
-          <li class="list-group-item">
-            <%= link_to interest.title, interest %>
-          </li>
+    <ul class="list-group">
+      <% @interests.each do |interest| %>
+        <li class="list-group-item">
+          <%= link_to interest.title, interest %>
+        </li>
+      <% end %>
+      <li class="list-group-item">
+        <%= simple_form_for @interest do |f| %>
+          <%= f.text_field :title, placeholder: 'Add your interest' %>
         <% end %>
-      </ul>
-    </div>
+      </li>
+    </ul>
   </div>
 </div>
 
