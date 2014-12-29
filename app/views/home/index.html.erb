@@ -4,9 +4,7 @@
   <div class="col-md-6">
     <div class="list-group">
       <div class="list-group-item">
-        <%= simple_form_for @interest do |f| %>
-          <%= f.text_field :title, placeholder: 'What are you intersted in?' %>
-        <% end %>
+        <%= render 'form', type: 'interest'%>
       </div>
       <% @interests.each do |interest| %>
         <div class="list-group-item">
@@ -20,9 +18,7 @@
   <div class="col-md-6">
     <div class="list-group">
       <div class="list-group-item">
-        <%= simple_form_for @contrib do |f| %>
-          <%= f.text_field :title, placeholder: 'What could you contribute?'%>
-        <% end %>
+        <%= render 'form', type: 'contrib'%>
       </div>
       <% @contribs.each do |contrib| %>
         <div class="list-group-item">
