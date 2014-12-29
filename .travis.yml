@@ -6,3 +6,7 @@ script:
 env:
   global:
     secure: H/cTACa1EL+TMAFiSxqGI7C3IGDQs35klw3ej9v0zcCXPVPit7UhkEej2knVniwPt6nllubSe6LZ1LH/4m0y3nkePHvpy8ciEAvuVqk/JhnkbEZi+Gk8Si1W3ubdXgz6VyYt20EXIaegUuHr8471sTAtPmCPag/bRYcvvxFlS7Q=
+notifications:
+  email: false
+  slack:
+    secure: YLYT6Qjw9LKg7vbFhb1BmRoCtYIVxe56a3MmZgkMzljWfENCX6rnBHgUoqNZgOnw6oGD/qUfOSi2tSDgx5+6IRniyMlV82+ePA4yBmKY9l9WwY/tftHMWbm9dgn7GPYzEnhifuvpgLMkbm5lxB4vk2JJt3K6SOAQmc22thhNJT8=
