@@ -25,6 +25,7 @@ class ContribsController < ApplicationController
   # POST /contribs.json
   def create
     @contrib = Contrib.new(contrib_params)
+    @contrib.user = current_user
 
     respond_to do |format|
       if @contrib.save

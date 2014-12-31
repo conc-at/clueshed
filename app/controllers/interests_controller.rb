@@ -25,6 +25,7 @@ class InterestsController < ApplicationController
   # POST /interests.json
   def create
     @interest = Interest.new(interest_params)
+    @interest.user = current_user
 
     respond_to do |format|
       if @interest.save
