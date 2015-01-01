@@ -5,6 +5,7 @@ gem 'rails', '4.1.8'
 gem 'devise'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'gravatar_image_tag'
 # Use SCSS for stylesheets
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.1'
