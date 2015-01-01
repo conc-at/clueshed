@@ -1,5 +1,7 @@
 class ContribsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_contrib, only: [:show, :edit, :update, :destroy]
+  before_action :owns_contrib, only: [:edit, :update, :destroy]
 
   # GET /contribs
   # GET /contribs.json
@@ -66,6 +68,16 @@ class ContribsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_contrib
       @contrib = Contrib.find(params[:id])
+    end
+
+    def owns_contrib
+      if !user_signed_in? || current_user != @contrib.user
+        begin
+          redirect_to :back, flash: { error: "You can only do this on things you own." }
+        rescue ActionController::RedirectBackError
+          redirect_to contribs_path
+        end
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
