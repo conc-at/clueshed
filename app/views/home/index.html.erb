@@ -12,7 +12,7 @@
         <div class="list-group-item">
           <%= link_to interest.title, interest %>
           by
-          <%= interest.user.username %>
+          <%= link_to interest.user.username, user_path(:username => interest.user.username) %>
         </div>
       <% end %>
     </div>
@@ -28,7 +28,7 @@
         <div class="list-group-item">
           <%= link_to contrib.title, contrib %>
           by
-          <%= contrib.user.username %>
+          <%= link_to contrib.user.username, user_path(:username => contrib.user.username) %>
         </div>
       <% end %>
     </div>
