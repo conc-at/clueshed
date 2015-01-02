@@ -1,8 +1,8 @@
 <div class="col-md-10 col-md-offset-1">
-  <h1> <%= @interest.title %> </h1>
-  <p> <%= @interest.description %> </p> <br>
+  <h1><%= @interest.title %></h1>
+  <p><%= @interest.description %></p>
   <p>
-    This Interest was created by
+    Created by
     <%= link_to @interest.user.username, user_path(:username => @interest.user.username) %>
     on
     <%= @interest.created_at.strftime("%A, %d %B %Y") %>
@@ -12,20 +12,19 @@
         <%= @interest.updated_at.strftime("%H:%M")%>
       <% end %>
     <% end %>
-    .
-  </p> <br>
+  </p>
 </div>
 
 <div class="col-md-2 col-md-offset-1 col-xs-6">
   <%= link_to interests_path, class: 'btn btn-primary btn-block' do %>
-        <%= icon('chevron-left', 'Back') %>
+    <%= icon('chevron-left', 'Back') %>
   <% end %>
 </div>
 
 <% if current_user ==  @interest.user %>
   <div class="col-md-2 col-xs-6">
     <%= link_to edit_interest_path(@interest), class: 'btn btn-primary btn-block' do %>
-          <%= icon('pencil-square-o', 'Edit') %>
+      <%= icon('pencil-square-o', 'Edit') %>
     <% end %>
   </div>
 <% end %>
