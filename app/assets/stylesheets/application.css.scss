@@ -18,6 +18,8 @@ $body-bg: #f7f7f7;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 @font-face {
   font-family: 'Pacifico';
@@ -33,4 +35,12 @@ body {
 
 a.list-group-item {
   color: $brand-primary;
+}
+
+.btn-github {
+  @include button-variant(white, hsla(0,0%,20%,1), darken(hsla(0,0%,20%,1), 10%));
+}
+
+.btn-twitter {
+  @include button-variant(white, hsla(206,82%,63%,1), darken(hsla(206,82%,63%,1), 10%));
 }

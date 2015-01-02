@@ -1,14 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-10 col-md-offset-1">
+  <h1><%= @interest.title %></h1>
+  <p><%= @interest.description %></p>
+  <p>
+    Created by
+    <%= link_to @interest.user.username, user_path(:username => @interest.user.username) %>
+    on
+    <%= @interest.created_at.strftime("%A, %d %B %Y") %>
+    <% unless @interest.created_at ==  @interest.updated_at %>
+      and last updated on <%= @interest.updated_at.strftime("%A, %d %B %Y") %>
+      <% if @interest.created_at.to_date ===  @interest.updated_at.to_date %>
+        <%= @interest.updated_at.strftime("%H:%M")%>
+      <% end %>
+    <% end %>
+  </p>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @interest.title %>
-</p>
+<div class="col-md-2 col-md-offset-1 col-xs-6">
+  <%= link_to interests_path, class: 'btn btn-primary btn-block' do %>
+    <%= icon('chevron-left', 'Back') %>
+  <% end %>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @interest.description %>
-</p>
-
-<%= link_to 'Edit', edit_interest_path(@interest) %> |
-<%= link_to 'Back', interests_path %>
+<% if current_user ==  @interest.user %>
+  <div class="col-md-2 col-xs-6">
+    <%= link_to edit_interest_path(@interest), class: 'btn btn-primary btn-block' do %>
+      <%= icon('pencil-square-o', 'Edit') %>
+    <% end %>
+  </div>
+<% end %>

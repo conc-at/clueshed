@@ -8,6 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center page-header">
+        <h1 class="brand"><%= link_to 'ClueShed', :root %></h1>
+        <h2>Contribs and Interests</h2>
+        <p class="lead">This is your event. You decide what will happen.</p>
+      </div>
+    </div>
+  </div>
+
   <% if flash.count > 0 %>
     <div class="container flash">
       <% flash.each do |key, value| %>
@@ -35,8 +46,6 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><%= link_to 'Home', '/' %></li>
-          <li><%= link_to 'Contribs', Contrib %></li>
-          <li><%= link_to 'Interests', Interest %></li>
           <li><%= link_to 'Get your own', 'https://github.com/conc-at/clueshed' %></li>
           <%= yield :footer_links %>
         </ul>

@@ -12,6 +12,7 @@ gem 'gravatar_image_tag'
 # Use SCSS for stylesheets
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.1'
+gem 'font-awesome-sass', '~> 4.2.0'
 gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form'
 # Use Uglifier as compressor for JavaScript assets

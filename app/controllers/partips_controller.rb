@@ -11,8 +11,13 @@ class PartipsController < ApplicationController
   # GET /partips
   # GET /partips.json
   def index
-    objects = model.all
-    instance_variable_set "@#{controller_name}", objects
+    respond_to do |format|
+      format.html { redirect_to :root }
+
+      objects = model.all
+      instance_variable_set "@#{controller_name}", objects
+      format.json { render }
+    end
   end
 
   # GET /partips/1

@@ -15,3 +15,23 @@ h1.brand {
   box-shadow: none;
   outline: none;
 }
+
+.expand {
+  div:not(.visible) {
+    display: none;
+  }
+  &.expanded {
+    div {
+      display: block;
+    }
+  }
+}
+
+
+.row.signup-teaser {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  .btn-lg {
+    margin-bottom: 20px;
+  }
+}
