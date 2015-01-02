@@ -8,6 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center page-header">
+        <h1 class="brand"><%= link_to 'ClueShed', :root %></h1>
+        <h2>Contribs and Interests</h2>
+        <p class="lead">This is your event. You decide what will happen.</p>
+      </div>
+    </div>
+  </div>
+
   <% if flash.count > 0 %>
     <div class="container flash">
       <% flash.each do |key, value| %>
