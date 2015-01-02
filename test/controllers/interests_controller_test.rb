@@ -3,6 +3,7 @@ require 'test_helper'
 class InterestsControllerTest < ActionController::TestCase
   setup do
     @interest = interests(:one)
+    User.first.confirm!
     sign_in User.first
   end
 
