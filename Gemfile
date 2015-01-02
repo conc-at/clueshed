@@ -5,6 +5,7 @@ gem 'rails', '4.1.8'
 gem 'devise'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
+gem 'figaro'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'gravatar_image_tag'
