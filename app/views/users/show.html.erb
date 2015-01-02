@@ -1,0 +1,64 @@
+<%= render 'home/header' %>
+
+<div class="row">
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <%= gravatar_image_tag(@user.email, alt: @user.username) %>
+      <% if user_signed_in? && current_user == @user %>
+        <div class="list-group">
+          <div class="list-group-item">
+            <%= link_to 'Edit your account', edit_user_registration_path %>
+          </div>
+        </div>
+      <% end %>
+      <div class="panel-footer">
+        <strong>
+          <%= @user.username %>
+        </strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>
+          Interests
+        </strong>
+      </div>
+      <div class="list-group">
+        <% @user.interests.each do |interest| %>
+          <div class="list-group-item">
+            <%= link_to interest.title, interest %>
+          </div>
+        <% end %>
+        <% unless @user.interests.length > 0 %>
+          <div class="list-group-item">
+            No Interests yet
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>
+          Contribs
+        </strong>
+      </div>
+      <div class="list-group">
+        <% @user.contribs.each do |contrib| %>
+          <div class="list-group-item">
+            <%= link_to contrib.title, contrib %>
+          </div>
+        <% end %>
+        <% unless @user.contribs.length > 0 %>
+          <div class="list-group-item">
+            No Contrib yet
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,8 +2,13 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
+gem 'devise'
+gem 'omniauth-twitter'
+gem 'omniauth-github'
+gem 'figaro'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'gravatar_image_tag'
 # Use SCSS for stylesheets
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.1'

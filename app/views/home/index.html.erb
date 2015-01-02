@@ -9,7 +9,11 @@
         <% end %>
       </div>
       <% @interests.each do |interest| %>
-        <%= link_to interest.title, interest, class: 'list-group-item' %>
+        <div class="list-group-item">
+          <%= link_to interest.title, interest %>
+          by
+          <%= link_to interest.user.username, user_path(:username => interest.user.username) %>
+        </div>
       <% end %>
     </div>
   </div>
@@ -21,7 +25,11 @@
         <% end %>
       </div>
       <% @contribs.each do |contrib| %>
-        <%= link_to contrib.title, contrib, class: 'list-group-item' %>
+        <div class="list-group-item">
+          <%= link_to contrib.title, contrib %>
+          by
+          <%= link_to contrib.user.username, user_path(:username => contrib.user.username) %>
+        </div>
       <% end %>
     </div>
   </div>

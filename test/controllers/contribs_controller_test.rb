@@ -3,6 +3,8 @@ require 'test_helper'
 class ContribsControllerTest < ActionController::TestCase
   setup do
     @contrib = contribs(:one)
+    User.first.confirm!
+    sign_in User.first
   end
 
   test "should get index" do
