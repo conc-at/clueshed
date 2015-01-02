@@ -1,32 +1,63 @@
 <%= render 'header' %>
 
-<div class="row">
-  <div class="col-md-6">
-    <div class="list-group">
-      <div class="list-group-item">
-        <%= render 'form', type: 'interest'%>
-      </div>
-      <% @interests.each do |interest| %>
-        <div class="list-group-item">
-          <%= link_to interest.title, interest %>
-          by
-          <%= link_to interest.user.username, user_path(:username => interest.user.username) %>
-        </div>
+<% unless user_signed_in? %>
+  <div class="row signup-teaser">
+    <div class="col-md-4 col-md-offset-4">
+      <%= link_to '/users/auth/github', class: 'btn btn-github btn-lg btn-block' do %>
+        <%= icon('github', 'Sign In') %>
+      <% end %>
+    </div>
+
+    <div class="col-md-2 col-md-offset-4 col-xs-6">
+      <%= link_to '/users/auth/twitter', class: 'btn btn-twitter btn-block' do %>
+        <%= icon('twitter', 'Sign In') %>
+      <% end %>
+    </div>
+    <div class="col-md-2 col-xs-6">
+      <%= link_to new_user_registration_path, class: 'btn btn-primary btn-block' do %>
+        <%= icon('envelope', 'Sign Up') %>
       <% end %>
     </div>
   </div>
+<% end %>
+
+<div class="row">
   <div class="col-md-6">
-    <div class="list-group">
-      <div class="list-group-item">
-        <%= render 'form', type: 'contrib'%>
+    <div class="panel panel-default">
+      <div class="panel-heading">Interests</div>
+      <div class="list-group">
+        <% if user_signed_in? %>
+          <div class="list-group-item">
+            <%= render 'form', type: 'interest'%>
+          </div>
+        <% end %>
+        <% @interests.each do |interest| %>
+          <div class="list-group-item">
+            <%= link_to interest.title, interest %>
+            by
+            <%= link_to interest.user.username, user_path(:username => interest.user.username) %>
+          </div>
+        <% end %>
       </div>
-      <% @contribs.each do |contrib| %>
-        <div class="list-group-item">
-          <%= link_to contrib.title, contrib %>
-          by
-          <%= link_to contrib.user.username, user_path(:username => contrib.user.username) %>
-        </div>
-      <% end %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Contribs</div>
+      <div class="list-group">
+        <% if user_signed_in? %>
+          <div class="list-group-item">
+            <%= render 'form', type: 'contrib'%>
+          </div>
+        <% end %>
+        <% @contribs.each do |contrib| %>
+          <div class="list-group-item">
+            <%= link_to contrib.title, contrib %>
+            by
+            <%= link_to contrib.user.username, user_path(:username => contrib.user.username) %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
