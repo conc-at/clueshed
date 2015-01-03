@@ -17,5 +17,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Edit', edit_contrib_path(@contrib) %> |
-<%= link_to 'Back', contribs_path %>
+<%= render 'partips/actions', partip: @contrib, use_buttons: true %>
