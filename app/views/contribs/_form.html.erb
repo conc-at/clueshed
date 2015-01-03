@@ -1,4 +1,5 @@
 <%= simple_form_for @contrib, html: { class: 'form-vertical' } do |f| %>
+  <%= f.hidden_field :interest_id if @contrib.interest_id %>
   <div class="field">
     <%= f.input :title %>
   </div>
