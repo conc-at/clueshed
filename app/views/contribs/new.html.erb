@@ -1,4 +1,11 @@
-<h1>New contrib</h1>
+<h1>
+  New contrib
+  <% if @contrib.interest %>
+    <small>
+      in reply to <%= @contrib.interest.title %>
+    </small>
+  <% end %>
+</h1>
 
 <%= render 'form' %>
 

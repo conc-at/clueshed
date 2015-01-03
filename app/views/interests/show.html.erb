@@ -1,4 +1,4 @@
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-8">
   <h1><%= @interest.title %></h1>
   <p><%= @interest.description %></p>
   <p>
@@ -15,16 +15,25 @@
   </p>
 </div>
 
-<div class="col-md-2 col-md-offset-1 col-xs-6">
-  <%= link_to interests_path, class: 'btn btn-primary btn-block' do %>
-    <%= icon('chevron-left', 'Back') %>
-  <% end %>
-</div>
-
-<% if current_user ==  @interest.user %>
-  <div class="col-md-2 col-xs-6">
-    <%= link_to edit_interest_path(@interest), class: 'btn btn-primary btn-block' do %>
-      <%= icon('pencil-square-o', 'Edit') %>
-    <% end %>
+<div class="col-md-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <strong>
+        Contribs in reply
+      </strong>
+    </div>
+    <div class="list-group">
+      <% @interest.contribs.each do |contrib| %>
+        <%= render 'partips/list_item', partip: contrib %>
+      <% end %>
+      <% unless @interest.contribs.length > 0 %>
+        <div class="list-group-item">
+          No Contrib yet
+        </div>
+      <% end %>
+      <%= link_to new_contrib_path(:in_reply_to => @interest.id), class: 'btn btn-primary btn-block' do %>
+        <%= icon('reply', 'Reply with your contribution') %>
+      <% end if user_signed_in? %>
+    </div>
   </div>
-<% end %>
+</div>
