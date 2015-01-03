@@ -2,6 +2,16 @@ $ ->
   $('.vote-trigger').click ->
     $trigger = $ @
     $icon = $trigger.find '.fa'
+    $badge = $trigger
+      .parents '.actions'
+      .siblings '.badge'
+
+    increase = ->
+      return unless $badge.length
+      $badge.text($badge.text()-0+1)
+    decrease = ->
+      return unless $badge.length
+      $badge.text($badge.text()-1 || '')
 
     if $trigger.hasClass 'voted'
       method = 'DELETE'
@@ -26,9 +36,16 @@ $ ->
       contentType:'application/json; charset=utf-8'
       dataType:'json'
     .done (res) ->
-      $trigger[if method  is 'DELETE' then 'removeClass' else 'addClass'] 'voted'
-      $trigger.removeAttr 'data-vote'
-      if res?.id then $trigger.attr 'data-vote', res.id
+      if method is 'DELETE'
+        $trigger
+          .removeClass 'voted'
+          .removeAttr 'data-vote'
+        decrease()
+      else
+        $trigger.addClass 'voted'
+        if res?.id then $trigger.attr 'data-vote', res.id
+        increase()
+
     .always ->
       $icon
         .removeClass 'fa-spin'

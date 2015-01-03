@@ -1,4 +1,6 @@
 <div class="list-group-item partip">
+  <span class="badge"><%= partip.votes.length if partip.votes.length > 0 %></span>
+
   <span class="text-label">
     <%= link_to partip.title, partip %>
     <% unless defined? no_attribution and no_attribution %>
