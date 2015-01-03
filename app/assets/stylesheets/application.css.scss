@@ -69,6 +69,15 @@ a.list-group-item {
     margin-left: 10px;
   }
 
+  .vote-trigger {
+    .fa:before {
+      content: "\f006";
+    }
+    &.voted .fa:before {
+      content: "\f005";
+    }
+  }
+
   a {
     text-decoration: none !important;
   }
