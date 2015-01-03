@@ -30,11 +30,7 @@
           </div>
         <% end %>
         <% @interests.each do |interest| %>
-          <div class="list-group-item">
-            <%= link_to interest.title, interest %>
-            by
-            <%= link_to interest.user.username, user_path(:username => interest.user.username) %>
-          </div>
+          <%= render 'partips/list_item', partip: interest %>
         <% end %>
       </div>
     </div>
@@ -49,11 +45,7 @@
           </div>
         <% end %>
         <% @contribs.each do |contrib| %>
-          <div class="list-group-item">
-            <%= link_to contrib.title, contrib %>
-            by
-            <%= link_to contrib.user.username, user_path(:username => contrib.user.username) %>
-          </div>
+          <%= render 'partips/list_item', partip: contrib %>
         <% end %>
       </div>
     </div>

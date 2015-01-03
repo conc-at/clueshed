@@ -1,0 +1,37 @@
+<div class="list-group-item partip">
+  <span class="text-label">
+    <%= link_to partip.title, partip %>
+    <% unless defined? no_attribution and no_attribution %>
+      <small>
+        by
+        <%= link_to partip.user.username, user_path(:username => partip.user.username) %>
+      </small>
+    <% end %>
+  </span>
+
+  <% if user_signed_in? %>
+    <span class="actions">
+      <% if current_user != partip.user %>
+        <!--<% if partip.class.name == 'Interest' %>
+          <%= link_to :root, title: 'Reply' do %>
+            <%= icon('reply') %>
+          <% end %>
+        <% end %>
+
+        <%= link_to :root, title: 'Star' do %>
+          <%= icon('star') %>
+        <% end %> -->
+      <% else %>
+        <%= link_to edit_polymorphic_path(partip), title: 'Edit' do %>
+          <%= icon('edit') %>
+        <% end %>
+
+        <%= link_to partip, title: 'Remove', method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= icon('remove') %>
+        <% end %>
+      <% end %>
+    </span>
+  <% end %>
+
+  <span class="clearfix"></span>
+</div>
