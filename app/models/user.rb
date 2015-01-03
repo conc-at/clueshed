@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :contribs
   has_many :interests
+  has_many :votes
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
   validates_presence_of :username
