@@ -26,9 +26,7 @@
       </div>
       <div class="list-group">
         <% @user.interests.each do |interest| %>
-          <div class="list-group-item">
-            <%= link_to interest.title, interest %>
-          </div>
+          <%= render 'partips/list_item', partip: interest, no_attribution: true %>
         <% end %>
         <% unless @user.interests.length > 0 %>
           <div class="list-group-item">
@@ -47,9 +45,7 @@
       </div>
       <div class="list-group">
         <% @user.contribs.each do |contrib| %>
-          <div class="list-group-item">
-            <%= link_to contrib.title, contrib %>
-          </div>
+          <%= render 'partips/list_item', partip: contrib, no_attribution: true %>
         <% end %>
         <% unless @user.contribs.length > 0 %>
           <div class="list-group-item">
