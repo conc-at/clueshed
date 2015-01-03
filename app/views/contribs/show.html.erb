@@ -10,5 +10,12 @@
   <%= @contrib.description %>
 </p>
 
+<% if @contrib.interest %>
+  <p>
+    <strong>In reply to:</strong>
+    <%= @contrib.interest.title %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_contrib_path(@contrib) %> |
 <%= link_to 'Back', contribs_path %>
