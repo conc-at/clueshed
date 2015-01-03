@@ -11,32 +11,7 @@
 
   <% if user_signed_in? %>
     <span class="actions">
-      <% if partip.class.name == 'Interest' %>
-        <%= link_to new_contrib_path(:in_reply_to => partip.id), title: 'Reply' do %>
-          <%= icon('reply') %>
-        <% end %>
-      <% end %>
-
-      <% if current_user != partip.user %>
-        <a
-          title="Vote"
-          class="vote-trigger <%= 'voted' if has_voted(partip) %>"
-          data-user="<%= current_user.id %>"
-          data-partip-id="<%= partip.id %>"
-          data-partip-type="<%= partip.class.name.downcase %>"
-          <% if has_voted(partip) %>data-vote="<%= vote_id(partip) %>"<% end %>
-        >
-          <%= icon('noop') %>
-        </a>
-      <% else %>
-        <%= link_to edit_polymorphic_path(partip), title: 'Edit' do %>
-          <%= icon('edit') %>
-        <% end %>
-
-        <%= link_to partip, title: 'Remove', method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <%= icon('remove') %>
-        <% end %>
-      <% end %>
+      <%= render 'partips/actions', partip: partip %>
     </span>
   <% end %>
 

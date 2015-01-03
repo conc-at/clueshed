@@ -56,12 +56,6 @@ a.list-group-item {
 
   .actions {
     float: right;
-    opacity: 0;
-    transition: opacity 0.1s ease-in;
-  }
-
-  &:hover .actions {
-    opacity: 1;
   }
 
   .fa {
@@ -69,16 +63,16 @@ a.list-group-item {
     margin-left: 10px;
   }
 
-  .vote-trigger {
-    .fa:before {
-      content: "\f006";
-    }
-    &.voted .fa:before {
-      content: "\f005";
-    }
-  }
-
   a {
     text-decoration: none !important;
+  }
+}
+
+.vote-trigger {
+  .fa:before {
+    content: "\f006";
+  }
+  &.voted .fa:before {
+    content: "\f005";
   }
 }
