@@ -11,16 +11,16 @@
 
   <% if user_signed_in? %>
     <span class="actions">
-      <% if current_user != partip.user %>
-        <!--<% if partip.class.name == 'Interest' %>
-          <%= link_to :root, title: 'Reply' do %>
-            <%= icon('reply') %>
-          <% end %>
+      <% if partip.class.name == 'Interest' %>
+        <%= link_to new_contrib_path(:in_reply_to => partip.id), title: 'Reply' do %>
+          <%= icon('reply') %>
         <% end %>
+      <% end %>
 
+      <% if current_user != partip.user %>
         <%= link_to :root, title: 'Star' do %>
           <%= icon('star') %>
-        <% end %> -->
+        <% end %>
       <% else %>
         <%= link_to edit_polymorphic_path(partip), title: 'Edit' do %>
           <%= icon('edit') %>
