@@ -1,0 +1,7 @@
+%h1
+  New contrib
+  - if @contrib.interest
+    %small
+      in reply to #{@contrib.interest.title}
+= render 'form'
+= link_to 'Back', contribs_path

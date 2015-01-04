@@ -1,0 +1,43 @@
+!!!
+%html
+  %head
+    %title Clueshed
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+  %body
+    .container
+      .row
+        .col-md-12.text-center.page-header
+          %h1.brand= link_to 'ClueShed', :root
+          %h2 Contribs and Interests
+          %p.lead This is your event. You decide what will happen.
+    - if flash.count > 0
+      .container.flash
+        - flash.each do |key, value|
+          %div{:class => "alert alert-dismissible #{flash_class(key)}", :role => "alert"}
+            %button.close{"data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} &times;
+              %span.sr-only Close
+            = value
+    .container
+      = yield
+    %nav.navbar.navbar-default.navbar-fixed-bottom{:role => "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.glyphicon.glyphicon-chevron-up
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li= link_to 'Home', '/'
+            %li= link_to 'Get your own', 'https://github.com/conc-at/clueshed'
+            = yield :footer_links
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %li= link_to current_user.username, user_path(:username => current_user.username)
+              %li= link_to 'Log Out', destroy_user_session_path, method: :delete
+            - else
+              %li= link_to 'Sign Up', new_user_registration_path
+              %li= link_to 'Log In', new_user_session_path

@@ -1,0 +1,7 @@
+= simple_form_for partip(type), html: { class: 'form-vertical expand' } do |f|
+  .field.visible
+    = f.text_field :title, placeholder: placeholder(type)
+  .field
+    = f.input :description, as: :text
+  .actions
+    = f.button :submit

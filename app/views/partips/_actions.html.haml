@@ -1,0 +1,26 @@
+- use_buttons = false unless defined? use_buttons
+- btn_class = use_buttons ? 'btn btn-primary' : ''
+- if partip.class.name == 'Interest'
+  = link_to new_contrib_path(:in_reply_to => partip.id), class: btn_class, title: 'Reply' do
+    = icon('reply')
+    - if use_buttons
+      Reply
+- if current_user != partip.user
+  %a{:title => "Vote",
+  :class => "vote-trigger #{'voted' if has_voted(partip)} #{btn_class}",
+  'data-user' => current_user.id,
+  'data-partip-id' => partip.id,
+  'data-partip-type' => partip.class.name.downcase,
+  'data-vote' => (vote_id(partip) if has_voted(partip))}
+    = icon('noop')
+    - if use_buttons
+      Vote
+- else
+  = link_to edit_polymorphic_path(partip), class: btn_class, title: 'Edit' do
+    = icon('edit')
+    - if use_buttons
+      Edit
+  = link_to partip, class: btn_class, title: 'Remove', method: :delete, data: { confirm: 'Are you sure?' } do
+    = icon('remove')
+    - if use_buttons
+      Remove

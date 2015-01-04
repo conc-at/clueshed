@@ -1,0 +1,7 @@
+= simple_form_for @interest, html: { class: 'form-vertical' } do |f|
+  .field
+    = f.input :title
+  .field
+    = f.input :description, as: :text
+  .actions
+    = f.button :submit

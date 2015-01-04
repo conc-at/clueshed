@@ -1,0 +1,44 @@
+.row
+  .col-md-3.col-sm-6
+    .panel.panel-default
+      = gravatar_image_tag(@user.email, alt: @user.username)
+      - if user_signed_in? && current_user == @user
+        .list-group
+          .list-group-item
+            = link_to 'Edit your account', edit_user_registration_path
+      .panel-footer
+        %strong
+          = @user.username
+  .col-md-3.col-sm-6
+    .panel.panel-default
+      .panel-heading
+        %strong
+          Interests
+      .list-group
+        - @user.interests.each do |interest|
+          = render 'partips/list_item', partip: interest, no_attribution: true
+        - unless @user.interests.length > 0
+          .list-group-item
+            No Interests yet
+  .col-md-3.col-sm-6
+    .panel.panel-default
+      .panel-heading
+        %strong
+          Contribs
+      .list-group
+        - @user.contribs.each do |contrib|
+          = render 'partips/list_item', partip: contrib, no_attribution: true
+        - unless @user.contribs.length > 0
+          .list-group-item
+            No Contrib yet
+  .col-md-3.col-sm-6
+    .panel.panel-default
+      .panel-heading
+        %strong
+          Votes
+      .list-group
+        - @user.votes.each do |vote|
+          = render 'partips/list_item', partip: vote.partip unless vote.partip.nil?
+        - unless @user.votes.length > 0
+          .list-group-item
+            No Votes yet

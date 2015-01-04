@@ -1,0 +1,12 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @contrib.title
+%p
+  %strong Description:
+  = @contrib.description
+- if @contrib.interest
+  %p
+    %strong In reply to:
+    = @contrib.interest.title
+= render 'partips/actions', partip: @contrib, use_buttons: true

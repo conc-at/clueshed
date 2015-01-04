@@ -1,0 +1,7 @@
+%h2 Add Email
+= simple_form_for(@user, as: 'user', url: finish_signup_path(@user)) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :email, required: true, autofocus: true, hint: "Twitter doesn't give us your email, so please enter it manually.", input_html: { value: '' }
+  .form-actions
+    = f.button :submit, "Continue"

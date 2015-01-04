@@ -1,0 +1,17 @@
+%h1 Listing interests
+%table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th{:colspan => "3"}
+  %tbody
+    - @interests.each do |interest|
+      %tr
+        %td= interest.title
+        %td= interest.description
+        %td= link_to 'Show', interest
+        %td= link_to 'Edit', edit_interest_path(interest)
+        %td= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Interest', new_interest_path
