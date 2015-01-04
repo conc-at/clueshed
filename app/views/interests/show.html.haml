@@ -21,8 +21,6 @@
       - unless @interest.contribs.length > 0
         .list-group-item
           No Contrib yet
-      = link_to new_contrib_path(:in_reply_to => @interest.id), class: 'btn btn-primary btn-block' do
-        = icon('reply', 'Reply with your contribution')
-      - end if user_signed_in?
-.col-md-4
-  = render 'partips/actions', partip: @interest, use_buttons: true
+
+  .btn-group.btn-group-justified
+    = render 'partips/actions', partip: @interest, use_buttons: true
