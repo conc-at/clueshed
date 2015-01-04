@@ -20,7 +20,8 @@ class User < ActiveRecord::Base
     },
     :format => {
       :with => /\A[\w-]+\z/
-    }
+    },
+    :exclusion => %w(sign_in sign_up edit cancel)
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
