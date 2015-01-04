@@ -5,7 +5,7 @@ class Vote < ActiveRecord::Base
 
   before_validation :derivation
   validates :uid, uniqueness: true
-  validate :has_one_partip
+  validate :has_one_partip, :is_not_own_partip
   validates_presence_of :user_id
 
   def derivation
@@ -19,23 +19,25 @@ class Vote < ActiveRecord::Base
       end
     end
 
-    def partip_id
-      if self.interest
-        self.interest.id
-      elsif self.contrib
-        self.contrib.id
-      else
-        nil
+    def is_not_own_partip
+      if self.user_id == partip.user.id
+        errors.add(:base, "You must not vote on your own Contrib or Interest.")
       end
     end
 
-    def partip_type
+    def partip
       if self.interest
-        'interest'
+        self.interest
       elsif self.contrib
-        'contrib'
-      else
-        nil
+        self.contrib
       end
+    end
+
+    def partip_id
+      partip.id unless partip.nil?
+    end
+
+    def partip_type
+      partip.class.name.downcase unless partip.nil?
     end
 end
