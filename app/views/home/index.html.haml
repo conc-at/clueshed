@@ -12,7 +12,8 @@
 .row
   .col-md-6
     .panel.panel-default
-      .panel-heading Interests
+      .panel-heading
+        %strong Interests
       .list-group
         - if user_signed_in?
           .list-group-item
@@ -21,7 +22,8 @@
           = render 'partips/list_item', partip: interest
   .col-md-6
     .panel.panel-default
-      .panel-heading Contribs
+      .panel-heading
+        %strong Contribs
       .list-group
         - if user_signed_in?
           .list-group-item

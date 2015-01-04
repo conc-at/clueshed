@@ -2,7 +2,7 @@
   - if user_signed_in?
     %span.actions
       = render 'partips/actions', partip: partip
-  %span.badge= partip.votes.length if partip.votes.length > 0
+  %span.badge{"aria-label" => "Number of Votes"}= partip.votes.length if partip.votes.length > 0
   %span.text-label
     = link_to partip.title, partip
     - unless defined? no_attribution and no_attribution
