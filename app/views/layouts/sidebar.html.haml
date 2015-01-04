@@ -1,0 +1,11 @@
+- content_for :main do
+  .row
+    .col-md-8
+      .panel.panel-default
+        = content_for?(:content) ? yield(:content) : yield
+    .col-md-4
+      = yield :pre_sidebar
+      = yield :sidebar
+      = yield :post_sidebar
+
+= render template: 'layouts/application'

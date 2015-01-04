@@ -1,0 +1,12 @@
+- content_for :content do
+  = yield
+
+- content_for :sidebar do
+  .panel.panel-default
+    .panel-heading
+      %strong Last Interests Posted
+    .list-group
+      - @latestInterests.each do |interest|
+        = render 'partips/list_item', partip: interest
+
+= render template: 'layouts/sidebar'
