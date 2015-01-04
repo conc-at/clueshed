@@ -64,7 +64,7 @@
       </div>
       <div class="list-group">
         <% @user.votes.each do |vote| %>
-          <%= render 'partips/list_item', partip: vote.partip %>
+          <%= render 'partips/list_item', partip: vote.partip unless vote.partip.nil? %>
         <% end %>
         <% unless @user.votes.length > 0 %>
           <div class="list-group-item">
