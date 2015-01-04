@@ -1,0 +1,6 @@
+.panel.panel-default
+  .panel-heading
+    %strong Last #{partips.first.class.name.pluralize} posted
+  .list-group
+    - partips.each do |contrib|
+      = render 'partips/list_item', partip: contrib

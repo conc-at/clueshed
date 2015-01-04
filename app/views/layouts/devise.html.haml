@@ -1,7 +1,5 @@
-- content_for :content do
-  = yield
-
 - content_for :sidebar do
   = render 'partips/last_five', partips: @latestInterests
+  = render 'partips/last_five', partips: @latestContribs
 
 = render template: 'layouts/sidebar'

@@ -2,11 +2,6 @@
   = yield
 
 - content_for :sidebar do
-  .panel.panel-default
-    .panel-heading
-      %strong Last Contribs Posted
-    .list-group
-      - @latestContribs.each do |contrib|
-        = render 'partips/list_item', partip: contrib
+  = render 'partips/last_five', partips: @latestContribs
 
 = render template: 'layouts/sidebar'
