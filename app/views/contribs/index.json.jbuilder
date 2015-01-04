@@ -1,4 +1,1 @@
-json.array!(@contribs) do |contrib|
-  json.extract! contrib, :id, :title, :description
-  json.url contrib_url(contrib, format: :json)
-end
+json.array! @contribs, partial: 'partips/partip', as: :partip

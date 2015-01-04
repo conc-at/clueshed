@@ -1,1 +1,1 @@
-json.extract! @contrib, :id, :title, :description, :created_at, :updated_at, :user
+json.partial! 'partips/partip', partip: @contrib

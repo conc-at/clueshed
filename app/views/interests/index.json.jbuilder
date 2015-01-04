@@ -1,4 +1,1 @@
-json.array!(@interests) do |interest|
-  json.extract! interest, :id, :title, :description
-  json.url interest_url(interest, format: :json)
-end
+json.array! @interests, partial: 'partips/partip', as: :partip
