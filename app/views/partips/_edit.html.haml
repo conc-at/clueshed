@@ -9,3 +9,7 @@
         = partip.user.username
 .panel-body
   = render 'form', partip: partip
+
+  %br
+  = link_to "Delete #{partip.class.name}", partip, method: :delete, data: { confirm: 'Are you sure?' }
+
