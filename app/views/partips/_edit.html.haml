@@ -1,0 +1,11 @@
+.panel-heading
+  %h1
+    = link_to '', partip, title: 'Show', class: 'fa fa-chevron-left'
+    Editing
+    = partip.title
+    - if partip.user != current_user
+      %small
+        by
+        = partip.user.username
+.panel-body
+  = render 'form', partip: partip

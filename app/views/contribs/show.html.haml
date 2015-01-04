@@ -1,12 +1,10 @@
-%p#notice= notice
-%p
-  %strong Title:
-  = @contrib.title
-%p
-  %strong Description:
-  = @contrib.description
-- if @contrib.interest
-  %p
-    %strong In reply to:
-    = @contrib.interest.title
-= render 'partips/actions', partip: @contrib, use_buttons: true
+= render 'partips/profile_body', partip: @contrib
+
+= content_for :post_sidebar do
+  - if @contrib.interest
+    .panel.panel-default
+      .panel-heading
+        %strong In reply to
+      .list-group
+        = render 'partips/list_item', partip: @contrib.interest
+  = render 'partips/voted_for', partip: @contrib

@@ -1,0 +1,8 @@
+= simple_form_for partip, html: { class: 'form-vertical' } do |f|
+  = f.hidden_field :interest_id if defined? partip.interest
+  .field
+    = f.input :title
+  .field
+    = f.input :description, as: :text, hint: 'Markdown allowed'
+  .actions
+    = f.button :submit

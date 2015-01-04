@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel-heading
+    %strong Voted for this
+  .list-group
+    - partip.votes.each do |vote|
+      .list-group-item
+        = link_to vote.user.username, vote.user
+    - unless partip.votes.length > 0
+      .list-group-item
+        Nobody yet

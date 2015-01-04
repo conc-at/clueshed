@@ -1,0 +1,6 @@
+.panel-heading
+  %h1
+    = link_to '', :root, title: 'Home', class: 'fa fa-chevron-left'
+    New #{partip.class.name}
+.panel-body
+  = render 'form', partip: partip

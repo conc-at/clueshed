@@ -1,1 +1,2 @@
-json.extract! @interest, :id, :title, :description, :created_at, :updated_at
+json.extract! @interest, :id, :title, :created_at, :updated_at
+json.description markdown(@interest.description)
