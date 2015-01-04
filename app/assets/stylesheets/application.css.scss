@@ -47,11 +47,7 @@ a.list-group-item {
 
 .list-group-item.partip {
   .text-label {
-    float: left;
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    display: block;
   }
 
   .actions {
@@ -60,12 +56,10 @@ a.list-group-item {
 
   .fa {
     display: inline-block;
-    margin-left: 10px;
   }
 
-  .badge {
-    float: left;
-    margin-right: 10px;
+  .badge, .fa {
+    margin-left: 10px;
   }
 
   a {
