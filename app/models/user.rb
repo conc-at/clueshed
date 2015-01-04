@@ -69,6 +69,28 @@ class User < ActiveRecord::Base
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
 
+  def update_without_password(params, *options)
+
+    about_to_change_password = false
+    # If the user changes the password we reset the no_password flag
+    if no_password && !params[:password].blank? && params[:password] == params[:password_confirmation]
+      about_to_change_password = true
+    else
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+
+    result = update_attributes(params, *options)
+    clean_up_passwords
+
+    if about_to_change_password
+      self.no_password = false
+      self.save
+    end
+
+    result
+  end
+
   private
     def get_user(auth)
       # Get the existing user by email
@@ -86,7 +108,8 @@ class User < ActiveRecord::Base
       user = User.new(
         username: auth.info.nickname || auth.uid,
         email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-        password: Devise.friendly_token[0,20]
+        password: Devise.friendly_token[0,20],
+        no_password: true
       )
       user.skip_confirmation!
       user.save!
