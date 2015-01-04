@@ -35,44 +35,30 @@ class PartipsController < ApplicationController
   end
 
   # POST /partips
-  # POST /partips.json
   def create
     instance model.new partip_params
     instance.user = current_user
 
-    respond_to do |format|
-      if instance.save
-        format.html { redirect_to instance, notice: "#{model_name} was successfully created." }
-        format.json { render :show, status: :created, location: instance }
-      else
-        format.html { render :new }
-        format.json { render json: instance.errors, status: :unprocessable_entity }
-      end
+    if instance.save
+      redirect_to instance, notice: "#{model_name} was successfully created."
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /partips/1
-  # PATCH/PUT /partips/1.json
   def update
-    respond_to do |format|
-      if instance.update(partip_params)
-        format.html { redirect_to instance, notice: "#{model_name} was successfully updated." }
-        format.json { render :show, status: :ok, location: instance }
-      else
-        format.html { render :edit }
-        format.json { render json: instance.errors, status: :unprocessable_entity }
-      end
+    if instance.update(partip_params)
+      redirect_to instance, notice: "#{model_name} was successfully updated."
+    else
+      render :edit
     end
   end
 
   # DELETE /partips/1
-  # DELETE /partips/1.json
   def destroy
     instance.destroy
-    respond_to do |format|
-      format.html { redirect_to partips_path, notice: "#{model_name} was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to partips_path, notice: "#{model_name} was successfully destroyed."
   end
 
   private
