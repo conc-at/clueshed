@@ -1,8 +1,8 @@
 module HomeHelper
   def placeholder(type)
     case type
-      when 'contrib' then 'What could you contribute?'
-      when 'interest' then 'What are you intersted in?'
+      when 'contrib' then 'What could you talk about?'
+      when 'interest' then 'What would you like to hear at this event?'
     end
   end
 

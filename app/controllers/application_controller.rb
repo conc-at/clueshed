@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :partips
+  before_action :expose_config
 
   def ensure_signup_complete
     # Ensure we don't go into an infinite loop
@@ -29,5 +30,9 @@ class ApplicationController < ActionController::Base
       @contribs = Contrib.all
       @latestInterests = @interests.last(5).reverse
       @latestContribs = @contribs.last(5).reverse
+    end
+
+    def expose_config
+      @config = Rails.application.config.clueshed
     end
 end

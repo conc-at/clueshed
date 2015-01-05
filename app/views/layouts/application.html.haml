@@ -10,9 +10,10 @@
     .container
       .row
         .col-md-12.text-center.page-header
-          %h1.brand= link_to 'ClueShed', :root
-          %h2 Contribs and Interests
-          %p.lead This is your event. You decide what will happen.
+          = link_to :root do
+            = image_tag(@config[:logo])
+          %h1= @config[:title]
+          %p.lead= @config[:subtitle]
     - if flash.count > 0
       .container.flash
         - flash.each do |key, value|
@@ -31,8 +32,9 @@
             %span.glyphicon.glyphicon-chevron-up
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li= link_to 'Home', '/'
-            %li= link_to 'Get your own', 'https://github.com/conc-at/clueshed'
+            %li= link_to 'Home', @config[:website]
+            %li= link_to 'GitHub', 'https://github.com/conc-at/clueshed'
+            %li= link_to 'Legal', @config[:legal] if @config[:legal]
             = yield :footer_links
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
