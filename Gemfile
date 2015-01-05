@@ -5,7 +5,7 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
 gem 'figaro'
-gem 'sqlite3'
+gem 'pg'
 gem 'gravatar_image_tag'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.1'
@@ -20,6 +20,8 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'unicorn'
+gem 'rails_12factor', group: :production
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
 gem 'pry-rails', group: :development
