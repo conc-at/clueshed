@@ -12,3 +12,11 @@ notifications:
   email: false
   slack:
     secure: YLYT6Qjw9LKg7vbFhb1BmRoCtYIVxe56a3MmZgkMzljWfENCX6rnBHgUoqNZgOnw6oGD/qUfOSi2tSDgx5+6IRniyMlV82+ePA4yBmKY9l9WwY/tftHMWbm9dgn7GPYzEnhifuvpgLMkbm5lxB4vk2JJt3K6SOAQmc22thhNJT8=
+deploy:
+  provider: heroku
+  api_key:
+    secure: ZSMpKpx5Y4+fr1vk6bExCuxO+VgCiNPkuBhWyhVjyI4Zr3rqKPERfTq2BIMq1Ga7MU/V4Muq8tKgQQhrCclnQwfSZet9y37dE71SrIc7CmeUpDVKr7sPxn/CNfIsDjbEEg2jan9NCeIbElrrXCZt1KQ4hX7YHKwUplhfBSuRUVM=
+  app:
+    master: clueshed
+  on:
+    repo: conc-at/clueshed
