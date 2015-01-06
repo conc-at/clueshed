@@ -15,6 +15,8 @@
       .panel-heading
         %strong Interests
       .list-group
+        - if @interests.length == 0 and !user_signed_in?
+          .list-group-item No Interests yet - signup to add yours.
         - if user_signed_in?
           .list-group-item
             = render 'form', type: 'interest'
@@ -25,6 +27,8 @@
       .panel-heading
         %strong Contribs
       .list-group
+        - if @contribs.length == 0
+          .list-group-item No Contribs yet - signup to add yours.
         - if user_signed_in?
           .list-group-item
             = render 'form', type: 'contrib'
