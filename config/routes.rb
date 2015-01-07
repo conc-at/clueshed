@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   resources :votes, only: [:create, :destroy]
   resources :interests, :contribs
 
+  get '/404', :to => 'errors#show', :code => '404'
+  get '/422', :to => 'errors#show', :code => '422'
+  get '/500', :to => 'errors#show', :code => '500'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
