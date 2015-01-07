@@ -17,7 +17,7 @@
 <% PREFIX = 'STYLE_' %>
 <% ENV.each do |key, value| %>
   <% if key.start_with? PREFIX %>
-    $<%= key.sub(PREFIX, '') %>: <%= value %>;
+    $<%= key.sub(PREFIX, '').gsub('_','-') %>: <%= value %>;
   <% end %>
 <% end %>
 
