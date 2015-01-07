@@ -27,7 +27,7 @@
       .panel-heading
         %strong Contribs
       .list-group
-        - if @contribs.length == 0
+        - if @contribs.length == 0 and !user_signed_in?
           .list-group-item No Contribs yet - signup to add yours.
         - if user_signed_in?
           .list-group-item
