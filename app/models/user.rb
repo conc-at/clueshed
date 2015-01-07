@@ -93,7 +93,7 @@ class User < ActiveRecord::Base
   end
 
   private
-    def get_user(auth)
+    def self.get_user(auth)
       # Get the existing user by email
       # If no email was provided we assign a temporary email and ask the
       # user to verify it on the next step via UsersController.finish_signup
@@ -105,7 +105,7 @@ class User < ActiveRecord::Base
       user
     end
 
-    def create_user(auth, email)
+    def self.create_user(auth, email)
       user = User.new(
         username: auth.info.nickname || auth.uid,
         email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
