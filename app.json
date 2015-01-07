@@ -8,24 +8,32 @@
   "success_url": "/",
   "addons": ["heroku-postgresql:hobby-dev", "mandrill:starter"],
   "env": {
-    "RAILS_ENV": "production",
     "APP_DOMAIN": {
       "required": true,
       "description": "Domain where your app can be reached. (http://<appname>.herokuapp.com)"
     },
+    "MAILER": {
+      "required": true,
+      "description": "The email adress used to send confirmation mails from"
+    },
     "CLUESHED_TITLE": {
+      "required": false,
       "description": "Headline of the app (e.g. your event's name)"
     },
     "CLUESHED_SUBTITLE": {
+      "required": false,
       "description": "Subtitle of the app (e.g. your event's motto)"
     },
     "CLUESHED_WEBSITE": {
+      "required": false,
       "description": "URL to your event's main website"
     },
     "CLUESHED_LOGO": {
+      "required": false,
       "description": "URL to a logo of your event."
     },
     "STYLE_brand_primary": {
+      "required": false,
       "description": "The event's main color. (This is bootstrap's brand-primary variable)"
     },
     "SECRET_KEY_BASE": {
