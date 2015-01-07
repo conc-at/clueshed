@@ -1,0 +1,54 @@
+{
+  "name": "ClueShed",
+  "description": "\"Interests and Contribs\" for your Barcamp or Lightning-Talk track",
+  "website": "https://conc.at/",
+  "repository": "https://github.com/conc-at/clueshed",
+  "logo": "https://conc.at/images/logos/e5fdd2a3.concat_logo.svg",
+  "keywords": ["schedule", "rails", "interests", "contribs", "barcamp", "lightning-talk"],
+  "success_url": "/",
+  "addons": ["heroku-postgresql:hobby-dev", "mandrill:starter"],
+  "env": {
+    "RAILS_ENV": "production",
+    "APP_DOMAIN": {
+      "required": true,
+      "description": "Domain where your app can be reached. (http://<appname>.herokuapp.com)"
+    },
+    "CLUESHED_TITLE": {
+      "description": "Headline of the app (e.g. your event's name)"
+    },
+    "CLUESHED_SUBTITLE": {
+      "description": "Subtitle of the app (e.g. your event's motto)"
+    },
+    "CLUESHED_WEBSITE": {
+      "description": "URL to your event's main website"
+    },
+    "CLUESHED_LOGO": {
+      "description": "URL to a logo of your event."
+    },
+    "STYLE_brand_primary": {
+      "description": "The event's main color. (This is bootstrap's brand-primary variable)"
+    },
+    "SECRET_KEY_BASE": {
+      "generator": "secret"
+    },
+    "github_key": {
+      "required": true,
+      "description": "Go to https://github.com/settings/applications/new and register a new app. Enter the keys here."
+    },
+    "github_secret": {
+      "required": true,
+      "description": "See above"
+    },
+    "twitter_key": {
+      "required": true,
+      "description": "Go to https://apps.twitter.com/app/new and register a new app. Enter the keys here."
+    },
+    "twitter_secret": {
+      "required": true,
+      "description": "See above"
+    }
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  }
+}
