@@ -14,8 +14,11 @@
  *= require_self
  */
 
-<% Rails.application.config.clueshed[:styles].each do |key, value| %>
-$<%= key %>: <%= value %>;
+<% PREFIX = 'STYLE_' %>
+<% ENV.each do |key, value| %>
+  <% if key.start_with? PREFIX %>
+    $<%= key.sub(PREFIX, '') %>: <%= value %>;
+  <% end %>
 <% end %>
 
 @import "bootstrap-sprockets";

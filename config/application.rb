@@ -24,13 +24,7 @@ module Clueshed
       subtitle: ENV['CLUESHED_SUBTITLE'] || 'This is your event. You decide what will happen.',
       website: ENV['CLUESHED_WEBSITE'] || 'https://conc.at/',
       legal: ENV['CLUESHED_LEGAL'] || nil,
-      logo: ENV['CLUESHED_LOGO'] || 'logo.svg',
-      styles: {}
+      logo: ENV['CLUESHED_LOGO'] || 'logo.svg'
     }
-
-    VARIABLE_PREFIX = 'STYLE_'
-    ENV.each do |key, value|
-      config.clueshed[:styles][key.sub(VARIABLE_PREFIX, '')] = value if key.start_with? VARIABLE_PREFIX
-    end
   end
 end
