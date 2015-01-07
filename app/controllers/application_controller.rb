@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :partips
   before_action :expose_config
 
+  # Gladly adapted from http://sourcey.com/rails-4-omniauth-using-devise-with-twitter-facebook-and-linkedin/
   def ensure_signup_complete
     # Ensure we don't go into an infinite loop
     return if action_name == 'finish_signup'

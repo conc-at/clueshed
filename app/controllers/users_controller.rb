@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     end
   end
 
+  # Gladly adapted from http://sourcey.com/rails-4-omniauth-using-devise-with-twitter-facebook-and-linkedin/
+  # and further modified.
   # GET/PATCH /users/:id/finish_signup
   def finish_signup
     @user = User.find(params[:id])
