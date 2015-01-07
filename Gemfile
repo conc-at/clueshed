@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 gem 'rails', '4.1.9'
 gem 'devise'
@@ -26,3 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
 gem 'pry-rails', group: :development
 gem 'codeclimate-test-reporter', group: :test, require: nil
+gem 'rails-assets-moment'
+gem 'rails-assets-fullcalendar'
+gem 'rails-assets-jquery-ui'

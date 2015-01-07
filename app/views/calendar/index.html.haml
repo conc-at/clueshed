@@ -1,0 +1,11 @@
+- content_for :js do
+  = javascript_include_tag 'calendar', 'data-turbolinks-track' => true
+
+.col-md-4
+  .panel.panel-default
+    .panel-heading
+      %strong Contribs
+    .list-group#items
+      .list-group-item Loading...
+.col-md-8
+  #calendar

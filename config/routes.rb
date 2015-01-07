@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show], param: :username
   resources :votes, only: [:create, :destroy]
   resources :interests, :contribs
+  resources :calendar, only: [:index]
 
   get '/404', :to => 'errors#show', :code => '404'
   get '/422', :to => 'errors#show', :code => '422'

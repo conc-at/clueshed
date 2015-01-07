@@ -16,3 +16,4 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= stub calendar

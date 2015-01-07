@@ -3,7 +3,6 @@
   %head
     %title Clueshed
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = favicon_link_tag 'favicon.ico'
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
@@ -34,6 +33,7 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li= link_to 'Home', @config[:website]
+            %li= link_to 'Calender', calendar_index_path
             %li= link_to 'GitHub', 'https://github.com/conc-at/clueshed'
             %li= link_to 'Legal', @config[:legal] if @config[:legal]
             = yield :footer_links
@@ -44,3 +44,5 @@
             - else
               %li= link_to 'Sign Up', new_user_registration_path
               %li= link_to 'Log In', new_user_session_path
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = yield :js
