@@ -8,8 +8,12 @@ expandCal = ($cal, $items) ->
   $cal.parent().addClass('col-md-12').removeClass('col-md-6')
 
 persistCal = ($cal) ->
-  localStorage.setItem 'clueshed-calendar', JSON.stringify $cal.data('fullCalendar').clientEvents().filter (value, key) ->
-    return value unless /^_/.test(key)
+  localStorage.setItem 'clueshed-calendar', JSON.stringify $cal.data('fullCalendar').clientEvents().map (event) ->
+    filtered = {}
+    Object.keys(event).forEach (key) ->
+      if !/^_/.test(key) and key isnt 'source'
+        filtered[key] = event[key]
+    filtered
 
 restoreCal = ($cal, $items) ->
   events = (JSON.parse localStorage.getItem 'clueshed-calendar') or []
@@ -74,4 +78,9 @@ $ ->
       droppable: yes
       eventDrop: persistCal
       eventResize: persistCal
-      viewRender: restoreCal
+      viewRender: do ->
+        firstrender = yes
+        ->
+          return unless firstrender
+          restoreCal()
+          firstrender = no
