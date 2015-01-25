@@ -95,6 +95,7 @@ class User < ActiveRecord::Base
   end
 
   private
+  # Achtung: was sollte hier erreicht werden? Die Klassenmethoden sind so nicht auf private gestellt (das private bezieht sich auf den anderen scope)
     def self.get_user(auth)
       # Get the existing user by email
       # If no email was provided we assign a temporary email and ask the

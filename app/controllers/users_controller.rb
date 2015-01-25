@@ -16,9 +16,11 @@ class UsersController < ApplicationController
   def finish_signup
     @user = User.find(params[:id])
 
+    # mehr rails like wäre eine Trennung der Actions nach HTTP-Methode. Die zusätzliche Prüfung im if nach den Parametern ist zumindest ungewöhnlich, weil ja die Validierung einen fehlenden Parameter schon abfangen würde.
     if request.patch? && params[:user] && params[:user][:email]
       if @user.update(params.require(:user).permit([:email]))
         @user.skip_reconfirmation!
+        # Mischung von Ruby 1.8 und Ruby 1.9 Hash-Syntax (:foo => "bar" vs foo: "bar")
         sign_in @user, :bypass => true
         redirect_to :root, notice: 'Your profile was successfully updated.'
       else

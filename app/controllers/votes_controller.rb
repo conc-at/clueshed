@@ -3,6 +3,7 @@ class VotesController < ApplicationController
 
   # POST /votes.json
   def create
+    # scope access würde die Überprüfung mit own? unnötig machen!
     @vote = Vote.new vote_params
 
     unless own?
@@ -31,6 +32,7 @@ class VotesController < ApplicationController
   end
 
   private
+  # Achtung auf die Einrückungen. In diesem Fall ist das aber ohnehin ein Kommentar vom scaffold und sollte aufgeräumt werden (auch in allen anderen Fällen)
       # Never trust parameters from the scary internet, only allow the white list through.
     def vote_params
       params.require(:vote).permit(:user_id, :interest_id, :contrib_id)

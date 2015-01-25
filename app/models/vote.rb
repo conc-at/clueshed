@@ -8,11 +8,17 @@ class Vote < ActiveRecord::Base
   validate :has_one_partip, :is_not_own_partip
   validates_presence_of :user_id
 
+  # sollte private/protected sein
   def derivation
     self.uid = "#{self.user_id}_#{partip_type}_#{partip_id}"
   end
 
   def partip
+    # viele unnotwendige self
+    # außerdem:
+    # def partip
+    #   interest || contrib
+    # end
     if self.interest
       self.interest
     elsif self.contrib
@@ -21,7 +27,10 @@ class Vote < ActiveRecord::Base
   end
 
   private
+    # predicate method style: one_partip? und unten: not_own_partip?
     def has_one_partip
+      # Vorschlag:
+      # unless !interest ^ !contrib
       unless (!self.interest.nil? and self.contrib.nil?) or (!self.contrib.nil? and self.interest.nil?)
         errors.add(:base, "You must have exactly one Contrib or Interest.")
       end

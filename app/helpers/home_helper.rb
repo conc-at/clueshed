@@ -1,6 +1,7 @@
 module HomeHelper
   def placeholder(type)
     case type
+      # when sollte gleiche Einrückungstiefe wie das case haben
       when 'contrib' then 'What could you talk about?'
       when 'interest' then 'What would you like to hear at this event?'
     end

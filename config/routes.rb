@@ -11,11 +11,12 @@ Rails.application.routes.draw do
   resources :interests, :contribs
   resources :calendar, only: [:index]
 
+  # Hash-Syntax vereinheitlichen
   get '/404', :to => 'errors#show', :code => '404'
   get '/422', :to => 'errors#show', :code => '422'
   get '/500', :to => 'errors#show', :code => '500'
 
-
+  # Kommentare aufräumen
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

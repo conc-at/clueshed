@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :expose_config
 
   # Gladly adapted from http://sourcey.com/rails-4-omniauth-using-devise-with-twitter-facebook-and-linkedin/
+  # wird nur im partips controller verwendet
   def ensure_signup_complete
     # Ensure we don't go into an infinite loop
     return if action_name == 'finish_signup'
@@ -26,9 +27,12 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
     end
 
+    # refactoring: partips werden nicht in jedem Controller gebraucht
     def partips
+      # inhaltlich: Paginierung/Sortierung, wenn sehr viele partips vorhanden sind?
       @interests = Interest.all
       @contribs = Contrib.all
+      # snake case!
       @latestInterests = @interests.last(5).reverse
       @latestContribs = @contribs.last(5).reverse
     end

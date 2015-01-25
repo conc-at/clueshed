@@ -6,6 +6,7 @@ class ErrorsController < ApplicationController
     render 'error'
   end
 
+  # auch protected und private einrücken
 protected
   def status_code
     params[:code] || 500
