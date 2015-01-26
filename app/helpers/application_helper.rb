@@ -1,25 +1,29 @@
 module ApplicationHelper
   def flash_class(level)
     case level
-      when "notice" then "alert-info"
-      when "success" then "alert-success"
-      when "error" then "alert-danger"
-      when "alert" then "alert-warning"
+    when "notice"
+      "alert-info"
+    when "success"
+      "alert-success"
+    when "error"
+      "alert-danger"
+    when "alert"
+      "alert-warning"
     end
   end
 
   def markdown(text)
     options = {
-      filter_html:     true,
-      hard_wrap:       true,
+      filter_html: true,
+      hard_wrap: true,
       link_attributes: { rel: 'nofollow', target: "_blank" },
       space_after_headers: true,
       fenced_code_blocks: true
     }
 
     extensions = {
-      autolink:           true,
-      superscript:        true,
+      autolink: true,
+      superscript: true,
       disable_indented_code_blocks: true
     }
 
