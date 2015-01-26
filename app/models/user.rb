@@ -94,29 +94,29 @@ class User < ActiveRecord::Base
     result
   end
 
-  private
-  # Achtung: was sollte hier erreicht werden? Die Klassenmethoden sind so nicht auf private gestellt (das private bezieht sich auf den anderen scope)
-    def self.get_user(auth)
-      # Get the existing user by email
-      # If no email was provided we assign a temporary email and ask the
-      # user to verify it on the next step via UsersController.finish_signup
-      email = auth.info.email
-      user = User.where(:email => email).first if email
+  def self.get_user(auth)
+    # Get the existing user by email
+    # If no email was provided we assign a temporary email and ask the
+    # user to verify it on the next step via UsersController.finish_signup
+    email = auth.info.email
+    user = User.where(:email => email).first if email
 
-      # Create the user if it's a new registration
-      user = create_user auth, email if user.nil?
-      user
-    end
+    # Create the user if it's a new registration
+    user = create_user auth, email if user.nil?
+    user
+  end
+  private_class_method :get_user
 
-    def self.create_user(auth, email)
-      user = User.new(
-        username: auth.info.nickname || auth.uid,
-        email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-        password: Devise.friendly_token[0,20],
-        no_password: true
-      )
-      user.skip_confirmation!
-      user.save!
-      user
-    end
+  def self.create_user(auth, email)
+    user = User.new(
+      username: auth.info.nickname || auth.uid,
+      email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+      password: Devise.friendly_token[0,20],
+      no_password: true
+    )
+    user.skip_confirmation!
+    user.save!
+    user
+  end
+  private_class_method :create_user
 end
