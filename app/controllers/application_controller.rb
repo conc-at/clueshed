@@ -4,11 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :partips
+  before_action :latest_partips
   before_action :expose_config
 
   # Gladly adapted from http://sourcey.com/rails-4-omniauth-using-devise-with-twitter-facebook-and-linkedin/
-  # wird nur im partips controller verwendet
   def ensure_signup_complete
     # Ensure we don't go into an infinite loop
     return if action_name == 'finish_signup'
@@ -27,14 +26,14 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
     end
 
-    # refactoring: partips werden nicht in jedem Controller gebraucht
     def partips
-      # inhaltlich: Paginierung/Sortierung, wenn sehr viele partips vorhanden sind?
       @interests = Interest.all
       @contribs = Contrib.all
-      # snake case!
-      @latestInterests = @interests.last(5).reverse
-      @latestContribs = @contribs.last(5).reverse
+    end
+
+    def latest_partips
+      @latest_interests = Interest.all.last(5).reverse
+      @latest_contribs = Contrib.all.last(5).reverse
     end
 
     def expose_config
