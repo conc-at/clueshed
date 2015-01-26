@@ -14,16 +14,16 @@ class User < ActiveRecord::Base
   has_many :interests
   has_many :votes
 
-  validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+  validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
   validates_presence_of :username
   validates :username,
-    :uniqueness => {
-      :case_sensitive => false
+    uniqueness: {
+      case_sensitive: false
     },
-    :format => {
-      :with => /\A[\w-]+\z/
+    format: {
+      with: /\A[\w-]+\z/
     },
-    :exclusion => %w(sign_in sign_up edit cancel)
+    exclusion: %w(sign_in sign_up edit cancel)
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
-      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { value: login.downcase }]).first
     else
       where(conditions).first
     end
@@ -94,28 +94,29 @@ class User < ActiveRecord::Base
     result
   end
 
-  private
-    def self.get_user(auth)
-      # Get the existing user by email
-      # If no email was provided we assign a temporary email and ask the
-      # user to verify it on the next step via UsersController.finish_signup
-      email = auth.info.email
-      user = User.where(:email => email).first if email
+  def self.get_user(auth)
+    # Get the existing user by email
+    # If no email was provided we assign a temporary email and ask the
+    # user to verify it on the next step via UsersController.finish_signup
+    email = auth.info.email
+    user = User.where(email: email).first if email
 
-      # Create the user if it's a new registration
-      user = create_user auth, email if user.nil?
-      user
-    end
+    # Create the user if it's a new registration
+    user = create_user auth, email if user.nil?
+    user
+  end
+  private_class_method :get_user
 
-    def self.create_user(auth, email)
-      user = User.new(
-        username: auth.info.nickname || auth.uid,
-        email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-        password: Devise.friendly_token[0,20],
-        no_password: true
-      )
-      user.skip_confirmation!
-      user.save!
-      user
-    end
+  def self.create_user(auth, email)
+    user = User.new(
+      username: auth.info.nickname || auth.uid,
+      email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+      password: Devise.friendly_token[0,20],
+      no_password: true
+    )
+    user.skip_confirmation!
+    user.save!
+    user
+  end
+  private_class_method :create_user
 end

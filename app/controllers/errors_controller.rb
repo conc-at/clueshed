@@ -6,8 +6,8 @@ class ErrorsController < ApplicationController
     render 'error'
   end
 
-protected
-  def status_code
-    params[:code] || 500
-  end
+  protected
+    def status_code
+      params[:code] || 500
+    end
 end

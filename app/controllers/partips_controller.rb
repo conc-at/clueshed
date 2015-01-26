@@ -7,6 +7,7 @@ class PartipsController < ApplicationController
   before_action :ensure_signup_complete, except: [:index, :show]
   before_action :set_partip, only: [:show, :edit, :update, :destroy]
   before_action :owns_partip, only: [:edit, :update, :destroy]
+  before_action :partips, only: [:index]
 
   # GET /partips
   # GET /partips.json

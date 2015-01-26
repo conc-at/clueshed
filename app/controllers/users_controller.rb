@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if request.patch? && params[:user] && params[:user][:email]
       if @user.update(params.require(:user).permit([:email]))
         @user.skip_reconfirmation!
-        sign_in @user, :bypass => true
+        sign_in @user, bypass: true
         redirect_to :root, notice: 'Your profile was successfully updated.'
       else
         @show_errors = true
