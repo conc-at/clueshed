@@ -6,6 +6,6 @@ class ApplicationHelperTest < ActionView::TestCase
     assert_equal flash_class('success'), 'alert-success'
     assert_equal flash_class('error'), 'alert-danger'
     assert_equal flash_class('alert'), 'alert-warning'
-    assert_equal flash_class(''), nil
+    assert_nil flash_class('')
   end
 end

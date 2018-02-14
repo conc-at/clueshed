@@ -2,13 +2,13 @@
   .row.signup-teaser
     .col-md-4.col-md-offset-4
       = link_to '/users/auth/github', class: 'btn btn-github btn-lg btn-block' do
-        = icon('github', 'Sign In')
+        = icon('fab', 'github', 'Sign In')
     .col-md-2.col-md-offset-4.col-xs-6
       = link_to '/users/auth/twitter', class: 'btn btn-twitter btn-block' do
-        = icon('twitter', 'Sign In')
+        = icon('fab', 'twitter', 'Sign In')
     .col-md-2.col-xs-6
       = link_to new_user_registration_path, class: 'btn btn-primary btn-block' do
-        = icon('envelope', 'Sign Up')
+        = icon('fa', 'envelope', 'Sign Up')
 .row
   .col-md-6
     .panel.panel-default

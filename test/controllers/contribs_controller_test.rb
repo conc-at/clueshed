@@ -3,7 +3,7 @@ require 'test_helper'
 class ContribsControllerTest < ActionController::TestCase
   setup do
     @contrib = contribs(:one)
-    User.first.confirm!
+    User.first.confirm
     sign_in User.first
   end
 
@@ -20,30 +20,30 @@ class ContribsControllerTest < ActionController::TestCase
 
   test "should create contrib" do
     assert_difference('Contrib.count') do
-      post :create, contrib: { description: @contrib.description, title: @contrib.title }
+      post :create, params: {contrib: {description: @contrib.description, title: @contrib.title}}
     end
 
     assert_redirected_to contrib_path(assigns(:contrib))
   end
 
   test "should show contrib" do
-    get :show, id: @contrib
+    get :show, params: {id: @contrib}
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @contrib
+    get :edit, params: {id: @contrib}
     assert_response :success
   end
 
   test "should update contrib" do
-    patch :update, id: @contrib, contrib: { description: @contrib.description, title: @contrib.title }
+    patch :update, params: {id: @contrib, contrib: {description: @contrib.description, title: @contrib.title}}
     assert_redirected_to contrib_path(assigns(:contrib))
   end
 
   test "should destroy contrib" do
     assert_difference('Contrib.count', -1) do
-      delete :destroy, id: @contrib
+      delete :destroy, params: {id: @contrib}
     end
 
     assert_redirected_to contribs_path

@@ -14,10 +14,10 @@
  *= require_self
  */
 
-<% PREFIX = 'STYLE_' %>
+<% @prefix = 'STYLE_' %>
 <% ENV.each do |key, value| %>
-  <% if key.start_with? PREFIX %>
-    $<%= key.sub(PREFIX, '').gsub('_','-') %>: <%= value %>;
+  <% if key.start_with? @prefix %>
+    $<%= key.sub(@prefix, '').gsub('_','-') %>: <%= value %>;
   <% end %>
 <% end %>
 

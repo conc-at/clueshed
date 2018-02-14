@@ -4,7 +4,7 @@ class HomeHelperTest < ActionView::TestCase
   test 'should return placeholder' do
     assert_equal placeholder('contrib'), 'What could you talk about?'
     assert_equal placeholder('interest'), 'What would you like to hear at this event?'
-    assert_equal placeholder(''), nil
+    assert_nil placeholder('')
   end
 
   test 'should return instance' do
