@@ -79,7 +79,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = {:host => ENV['APP_DOMAIN']}
+  config.action_mailer.default_url_options = { host: '137.74.175.51', port: 3001 }
   config.action_mailer.perform_caching = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
@@ -91,6 +91,6 @@ Rails.application.configure do
     address: "smtp.gmail.com",
     port: 587,
     authentication: "plain",
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
   }
 end

@@ -20,7 +20,7 @@ deploy:
   api_key:
     secure: ZSMpKpx5Y4+fr1vk6bExCuxO+VgCiNPkuBhWyhVjyI4Zr3rqKPERfTq2BIMq1Ga7MU/V4Muq8tKgQQhrCclnQwfSZet9y37dE71SrIc7CmeUpDVKr7sPxn/CNfIsDjbEEg2jan9NCeIbElrrXCZt1KQ4hX7YHKwUplhfBSuRUVM=
   app:
-    master: clueshed
-    production: lightning-concat
+    master: clueshed2018
+    production: clueshed2018
   on:
     repo: conc-at/clueshed
