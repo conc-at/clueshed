@@ -4,8 +4,8 @@ sudo: false
 rbenv:
 - 1.1.1
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - cp config/database.travis.yml config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+- cp config/database.travis.yml config/database.yml
 script:
 - bundle exec rake test
 env:
@@ -18,7 +18,7 @@ notifications:
 deploy:
   provider: heroku
   api_key:
-    secure: ZSMpKpx5Y4+fr1vk6bExCuxO+VgCiNPkuBhWyhVjyI4Zr3rqKPERfTq2BIMq1Ga7MU/V4Muq8tKgQQhrCclnQwfSZet9y37dE71SrIc7CmeUpDVKr7sPxn/CNfIsDjbEEg2jan9NCeIbElrrXCZt1KQ4hX7YHKwUplhfBSuRUVM=
+    secure: Pod8/wQkNN/YIXSZIVgYwb5cXU76lCLKBsF0eSBq5yZy1TeAzUFwQ4wMR3OK2MG88IXTYqPqh8uJ2Yc1oulHm0yyfCEgU8gz9umZ9DCbvSanHl9lRZcsePY5sAajjRi1mv89vzBzDDIk6E5oTsDWICyF/DILw3+qE/L6ePzhkrg=
   app:
     master: clueshed2018
     production: clueshed2018

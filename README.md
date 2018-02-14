@@ -52,3 +52,9 @@ start the server
 $ rails server
 ````
 ---
+generate encrypted Heroku API-Key
+```shell
+$ travis encrypt $(heroku auth:token) --add deploy.api_key
+```
+-> will be copied into *.travis.yml*
+
