@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216121142) do
+ActiveRecord::Schema.define(version: 20180214160839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,26 +18,26 @@ ActiveRecord::Schema.define(version: 20150216121142) do
   create_table "contribs", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "interest_id"
   end
 
   create_table "identities", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "provider"
     t.string "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_identities_on_user_id"
   end
 
   create_table "interests", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id"
   end
 
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20150216121142) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "username"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
@@ -71,9 +71,10 @@ ActiveRecord::Schema.define(version: 20150216121142) do
     t.integer "user_id"
     t.integer "contrib_id"
     t.integer "interest_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["uid"], name: "index_votes_on_uid", unique: true
   end
 
+  add_foreign_key "identities", "users"
 end
