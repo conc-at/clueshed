@@ -1,5 +1,5 @@
-require 'codeclimate-test-reporter'
-CodeClimate::TestReporter.start
+require "minitest/reporters"
+Minitest::Reporters.use!
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
@@ -13,5 +13,5 @@ class ActiveSupport::TestCase
 end
 
 class ActionController::TestCase
-  include Devise::TestHelpers
+  include Devise::Test::ControllerHelpers
 end

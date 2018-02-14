@@ -3,7 +3,7 @@ require 'test_helper'
 class InterestsControllerTest < ActionController::TestCase
   setup do
     @interest = interests(:one)
-    User.first.confirm!
+    User.first.confirm
     sign_in User.first
   end
 
@@ -20,30 +20,30 @@ class InterestsControllerTest < ActionController::TestCase
 
   test "should create interest" do
     assert_difference('Interest.count') do
-      post :create, interest: { description: @interest.description, title: @interest.title }
+      post :create, params: {interest: {description: @interest.description, title: @interest.title}}
     end
 
     assert_redirected_to interest_path(assigns(:interest))
   end
 
   test "should show interest" do
-    get :show, id: @interest
+    get :show, params: {id: @interest}
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @interest
+    get :edit, params: {id: @interest}
     assert_response :success
   end
 
   test "should update interest" do
-    patch :update, id: @interest, interest: { description: @interest.description, title: @interest.title }
+    patch :update, params: {id: @interest, interest: {description: @interest.description, title: @interest.title}}
     assert_redirected_to interest_path(assigns(:interest))
   end
 
   test "should destroy interest" do
     assert_difference('Interest.count', -1) do
-      delete :destroy, id: @interest
+      delete :destroy, params: {id: @interest}
     end
 
     assert_redirected_to interests_path
