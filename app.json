@@ -6,15 +6,19 @@
   "logo": "https://conc.at/images/logos/e5fdd2a3.concat_logo.svg",
   "keywords": ["schedule", "rails", "interests", "contribs", "barcamp", "lightning-talk"],
   "success_url": "/",
-  "addons": ["heroku-postgresql:hobby-dev", "mandrill:starter"],
+  "addons": ["heroku-postgresql:hobby-dev"],
   "env": {
     "APP_DOMAIN": {
       "required": true,
       "description": "Domain where your app can be reached. (http://<appname>.herokuapp.com)"
     },
-    "MAILER": {
+    "GMAIL_USERNAME": {
       "required": true,
-      "description": "The email adress used to send confirmation mails from"
+      "description": "The gmail-adress used to send confirmation mails from"
+    },
+    "GMAIL_PASSWORD": {
+      "required": true,
+      "description": "The password for the gmail-adress"
     },
     "CLUESHED_TITLE": {
       "required": false,

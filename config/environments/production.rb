@@ -13,7 +13,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
@@ -78,10 +78,24 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+<<<<<<< Updated upstream
+=======
+  config.action_mailer.smtp_settings = {
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"],
+    domain: "gmail.com",
+    address: "smtp.gmail.com",
+    port: 587,
+    authentication: "plain",
+    enable_starttls_auto: true,
+  }
+
+>>>>>>> Stashed changes
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => ENV['APP_DOMAIN'] }
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = {:host => ENV['APP_DOMAIN']}
+  config.action_mailer.perform_caching = false
   config.action_mailer.perform_deliveries = true
+<<<<<<< Updated upstream
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.smtp_settings = {
@@ -93,4 +107,8 @@ Rails.application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
   }
+=======
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+>>>>>>> Stashed changes
 end
