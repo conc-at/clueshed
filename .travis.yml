@@ -23,4 +23,4 @@ deploy:
     master: clueshed
     production: lightning-concat
   on:
-    repo: conc-at/clueshed
+    repo: https://github.com/conc-at/clueshed/
