@@ -76,5 +76,5 @@ ActiveRecord::Schema.define(version: 20180214160839) do
     t.index ["uid"], name: "index_votes_on_uid", unique: true
   end
 
-  add_foreign_key "identities", "users"
+  add_foreign_key "identities", "users", on_delete: :cascade
 end

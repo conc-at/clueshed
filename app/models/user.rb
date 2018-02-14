@@ -10,9 +10,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :confirmable
 
-  has_many :contribs
-  has_many :interests
-  has_many :votes
+  has_many :contribs, dependent: :destroy
+  has_many :interests, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
   validates_presence_of :username
