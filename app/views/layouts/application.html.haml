@@ -11,7 +11,7 @@
       .row
         .col-md-12.text-center.page-header
           = link_to :root do
-            = image_tag(@config[:logo])
+            = image_tag(@config[:logo], style: 'height:146px;width:auto;')
           %h1= @config[:title]
           %p.lead= @config[:subtitle]
     - if flash.count > 0

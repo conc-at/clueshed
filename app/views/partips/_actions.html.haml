@@ -2,7 +2,7 @@
 - btn_class = use_buttons ? 'btn btn-primary' : ''
 - if partip.class.name == 'Interest'
   = link_to new_contrib_path(:in_reply_to => partip.id), class: btn_class, title: 'Reply' do
-    = icon('reply')
+    = icon('fa', 'reply')
     - if use_buttons
       Reply
 - if current_user != partip.user
@@ -12,11 +12,11 @@
   'data-partip-id' => partip.id,
   'data-partip-type' => partip.class.name.downcase,
   'data-vote' => (vote_id(partip) if has_voted(partip))}
-    = icon('noop')
+    = icon('fa', 'noop')
     - if use_buttons
       Vote
 - else
   = link_to edit_polymorphic_path(partip), class: btn_class, title: 'Edit' do
-    = icon('edit')
+    = icon('fa', 'edit')
     - if use_buttons
       Edit

@@ -68,6 +68,8 @@ GEM
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.21)
+    figaro (1.1.1)
+      thor (~> 0.14)
     font-awesome-sass (5.0.6.2)
       sass (>= 3.2)
     fullcalendar-rails (3.4.0.0)
@@ -239,6 +241,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.7)
   coffee-rails (~> 4.2)
   devise (~> 4.2)
+  figaro (~> 1.1, >= 1.1.1)
   font-awesome-sass (~> 5.0.6)
   fullcalendar-rails
   gravatar_image_tag
