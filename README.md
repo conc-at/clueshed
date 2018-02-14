@@ -7,3 +7,48 @@
 [![security](https://hakiri.io/github/conc-at/clueshed/master.svg)](https://hakiri.io/github/conc-at/clueshed/master)
 
 > "Interests and Contribs" for your Barcamp or Lightning-Talk track
+
+## Development setup
+
+---
+create db-tables
+```shell
+$ rails db:create
+```
+
+run migrations
+```shell
+$ rails db:migrate
+```
+---
+
+install dependencies
+```shell
+$ bundle install
+```
+---
+
+start the OSX mail server
+```shell
+$ sudo postfix start
+```
+---
+install figaro (for ENV-Vars)
+```shell
+$ bundle exec figaro install
+```
+-> This creates a commented *config/application.yml* file and adds it to your .gitignore.
+
+__Add your own configuration to this file!__
+-> refer to */config/aplication.example.yaml*
+
+to create a new secret for SECRET_KEY_BASE run
+```shell
+$ rails secret
+```
+---
+start the server
+```shell
+$ rails server
+````
+---
