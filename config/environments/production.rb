@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.app_domain = ENV['APP_DOMAIN']
+  config.app_domain = 'clueshed2018.herokuapp.com'
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -44,7 +44,7 @@ Rails.application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  config.log_level = :info
+  config.log_level = :debug
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -77,4 +77,16 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = {
+    host: config.app_domain,
+    port: 3000
+  }
+  config.action_mailer.smtp_settings = {
+    :address => config.app_domain,
+    :port => 25,
+    :domain => config.app_domain,
+  }
 end
