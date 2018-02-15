@@ -1,8 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.app_domain = 'localhost'
-
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -37,17 +35,16 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  # MAILER SETTINGS
+  #-> Gmail-Config in /config/initializers/email_setup.rb
+
   # This works with the mail server preinstalled on OS X
   # remember to start it with `sudo postfix start`
+  config.app_domain = 'localhost'
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = {
     host: config.app_domain,
     port: 3000
-  }
-  config.action_mailer.smtp_settings = {
-    :address => config.app_domain,
-    :port => 25,
-    :domain => config.app_domain,
   }
 end
