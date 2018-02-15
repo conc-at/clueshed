@@ -48,6 +48,6 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address => config.app_domain,
     :port => 25,
-    :domain => config.app_domain,
+    :domain => config.app_domain
   }
 end

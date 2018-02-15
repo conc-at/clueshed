@@ -81,8 +81,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = {
-    host: config.app_domain,
-    port: 3000
+    host: config.app_domain
   }
   config.action_mailer.smtp_settings = {
     :address => config.app_domain,
