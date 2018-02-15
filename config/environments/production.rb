@@ -80,7 +80,6 @@ Rails.application.configure do
 
   # ActionMailer Config
   config.action_mailer.default_url_options = {host: ENV["APP_DOMAIN"]}
-  config.mailer_sender = "ClueShed #{ENV["GMAIL_USERNAME"]}"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
@@ -92,6 +91,6 @@ Rails.application.configure do
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"],
     authentication: "plain",
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
   }
 end
