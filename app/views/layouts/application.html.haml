@@ -2,7 +2,7 @@
 %html
   %head
     %title= @config[:title]
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
     = favicon_link_tag 'favicon.ico'
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
@@ -45,5 +45,5 @@
             - else
               %li= link_to 'Sign Up', new_user_registration_path
               %li= link_to 'Log In', new_user_session_path
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true, 'data-turbolinks-eval' =>  true
+    = javascript_include_tag 'application'
     = yield :js
