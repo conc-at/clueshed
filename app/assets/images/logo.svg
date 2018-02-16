@@ -1,1 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 229.61 356.83"><defs><style>.cls-1{fill:#fdb906;}.cls-2{fill:#e40138;}.cls-3{fill:#1da4c1;}</style></defs><title>Element 1</title><g id="Ebene_2" data-name="Ebene 2"><g id="Logo_final"><polygon class="cls-1" points="127.56 102.05 229.61 102.05 229.61 0 127.56 102.05"/><polygon class="cls-2" points="0 215.66 0 86.07 129.59 86.07 0 215.66"/><polygon class="cls-3" points="229.61 223.88 229.61 111.95 117.68 111.95 229.61 223.88"/><polygon class="cls-2" points="110.66 118.94 229.61 237.88 110.66 356.83 110.66 118.94"/><polygon class="cls-3" points="76.16 76.16 0 76.16 0 0 76.16 76.16"/><polygon class="cls-1" points="100.61 129.1 0 229.71 100.61 330.32 100.61 129.1"/></g></g></svg>
+<svg 
+  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 229.61 356.83">
+  <defs>
+    <style>.cls-1{fill:#fdb906;}.cls-2{fill:#e40138;}.cls-3{fill:#1da4c1;}</style>
+  </defs>
+  <title>Element 1</title>
+  <g id="Ebene_2" data-name="Ebene 2">
+    <g id="Logo_final">
+      <polygon class="cls-1" points="127.56 102.05 229.61 102.05 229.61 0 127.56 102.05"/>
+      <polygon class="cls-2" points="0 215.66 0 86.07 129.59 86.07 0 215.66"/>
+      <polygon class="cls-3" points="229.61 223.88 229.61 111.95 117.68 111.95 229.61 223.88"/>
+      <polygon class="cls-2" points="110.66 118.94 229.61 237.88 110.66 356.83 110.66 118.94"/>
+      <polygon class="cls-3" points="76.16 76.16 0 76.16 0 0 76.16 76.16"/>
+      <polygon class="cls-1" points="100.61 129.1 0 229.71 100.61 330.32 100.61 129.1"/>
+    </g>
+  </g>
+</svg>

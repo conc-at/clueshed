@@ -228,7 +228,7 @@ GEM
     sdoc (1.0.0)
       rdoc (>= 5.0)
     shellany (0.0.1)
-    simple_form (3.5.0)
+    simple_form (3.5.1)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
     spring (2.0.2)

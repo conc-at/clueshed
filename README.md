@@ -58,3 +58,9 @@ $ travis encrypt $(heroku auth:token) --add deploy.api_key
 ```
 -> will be copied into *.travis.yml*
 
+## Production
+
+push config variables to heroku
+`$ figaro heroku:set -e production``
+
+

@@ -10,7 +10,7 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports and disable caching.
-  config.consider_all_requests_local       = true
+  config.consider_all_requests_local = true
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
@@ -38,13 +38,19 @@ Rails.application.configure do
   # MAILER SETTINGS
   #-> Gmail-Config in /config/initializers/email_setup.rb
 
-  # This works with the mail server preinstalled on OS X
-  # remember to start it with `sudo postfix start`
   config.app_domain = 'localhost'
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = {
     host: config.app_domain,
-    port: 3000
+    port: 3000,
+  }
+
+  # This works with the mail server preinstalled on OS X
+  # remember to start it with `sudo postfix start`
+  config.action_mailer.smtp_settings = {
+    :address => config.app_domain,
+    :port => 25,
+    :domain => config.app_domain
   }
 end
