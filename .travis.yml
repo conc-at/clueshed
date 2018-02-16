@@ -18,7 +18,7 @@ notifications:
 deploy:
   provider: heroku
   api_key:
-    secure: Pod8/wQkNN/YIXSZIVgYwb5cXU76lCLKBsF0eSBq5yZy1TeAzUFwQ4wMR3OK2MG88IXTYqPqh8uJ2Yc1oulHm0yyfCEgU8gz9umZ9DCbvSanHl9lRZcsePY5sAajjRi1mv89vzBzDDIk6E5oTsDWICyF/DILw3+qE/L6ePzhkrg=
+    secure: iPAx27ECThu2N2CJRRXvuLGljZDMt+JtNbL/0NZrLiE1CkIKF4xq1t/7gfIWkT+Ri1XHqL/h5codLAcXa5FXSECDnuEPLSg8mEC3TYr7oDH+uHX4TTtOWZO7ClPyNbhukI1oIgy5kJ68L9na3e6w9tD/ejOi+cpK1PGxUb+a4FI=
   app:
     master: clueshed2018
     production: clueshed2018
