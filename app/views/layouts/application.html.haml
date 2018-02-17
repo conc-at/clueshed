@@ -34,9 +34,13 @@
           %ul.nav.navbar-nav
             %li= link_to 'Home', :root
             %li= link_to 'Calender', calendar_index_path
-            %li= link_to 'Event', @config[:website], target: '_blank'
-            %li= link_to 'GitHub', 'https://github.com/conc-at/clueshed', target: '_blank'
             %li= link_to 'Legal', @config[:legal] if @config[:legal]
+            %li
+              =link_to @config[:website], target: '_blank' do
+                =icon('fas', 'external-link-alt', 'Event')
+            %li
+              =link_to 'https://github.com/conc-at/clueshed', target: '_blank' do
+                =icon('fas', 'external-link-alt', 'GitHub')
             = yield :footer_links
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?

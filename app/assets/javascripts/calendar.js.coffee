@@ -65,8 +65,9 @@ $ ->
         expandCal()
         persistCal()
       header: left: '', center: '', right: ''
+      height: 800,
       minTime: '08:00:00'
-      maxTime: '19:00:00'
+      maxTime: '24:00:00'
       editable: yes
       defaultView: 'agendaDay'
       allDaySlot: no

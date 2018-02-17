@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "BREAKFAST 🥐",
+    "description": " ",
+    "start": "2018-03-03T08:30:00.000Z",
+    "end": "2018-03-03T10:00:00.000Z",
+    "color": "#1da4c1"
+  },
+  {
+    "id": 2,
+    "title": "KEYNOTE 🗝📓",
+    "description": " ",
+    "start": "2018-03-03T10:00:00.000Z",
+    "end": "2018-03-03T11:00:00.000Z",
+    "color": "#fdb906"
+  },
+  {
+    "id": 3,
+    "title": "LUNCH 🍲",
+    "description": " ",
+    "start": "2018-03-03T13:00:00.000Z",
+    "end": "2018-03-03T14:00:00.000Z",
+    "color": "#1da4c1"
+  },
+  {
+    "id": 4,
+    "title": "CAFFÈ ☕️",
+    "description": " ",
+    "start": "2018-03-03T16:00:00.000Z",
+    "end": "2018-03-03T17:30:00.000Z",
+    "color": "#1da4c1"
+  },
+  {
+    "id": 5,
+    "title": "CLOSING TALK 🎆",
+    "description": " ",
+    "start": "2018-03-03T18:00:00.000Z",
+    "end": "2018-03-03T19:00:00.000Z",
+    "color": "#fdb906"
+  },
+  {
+    "id": 6,
+    "title": "PARTY 🎉",
+    "description": " ",
+    "start": "2018-03-03T21:00:00.000Z",
+    "end": "2018-03-04T04:00:00.000Z",
+    "color": "#1da4c1"
+  }
+]

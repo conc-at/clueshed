@@ -1,0 +1,16 @@
+//= require fullcalendar
+
+#schedule {
+  position: absolute;
+  z-index: 1;
+
+  .fc-axis.fc-time.fc-widget-content span {
+    display: none;
+  }
+
+  /* Inherits background for each event from Schedule. */
+  .fc-event .fc-bg {
+    background: inherit!important;
+  }
+}
+
