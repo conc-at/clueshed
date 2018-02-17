@@ -33,8 +33,8 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li= link_to 'Home', :root
-            %li= link_to 'Event', @config[:website], target: '_blank'
             %li= link_to 'Calender', calendar_index_path
+            %li= link_to 'Event', @config[:website], target: '_blank'
             %li= link_to 'GitHub', 'https://github.com/conc-at/clueshed', target: '_blank'
             %li= link_to 'Legal', @config[:legal] if @config[:legal]
             = yield :footer_links
