@@ -71,10 +71,9 @@ $ ->
       defaultView: 'agendaDay'
       allDaySlot: no
       defaultDate: '2015-07-03'
+      timeFormat: 'HH:mm',
+      slotLabelFormat: 'HH:mm'
       dayNames: do -> [0...7].map -> 'Event Day'
-      businessHours:
-        start: '09:00'
-        end: '18:00'
       droppable: yes
       eventDrop: persistCal
       eventResize: persistCal
