@@ -12,7 +12,10 @@
   'data-partip-id' => partip.id,
   'data-partip-type' => partip.class.name.downcase,
   'data-vote' => (vote_id(partip) if has_voted(partip))}
-    = icon('fa', 'noop')
+    - if has_voted(partip)
+      %i{:class => "fas fa-star", id: "vote-ico"}
+    - else
+      %i{:class => "far fa-star", id: "vote-ico"}
     - if use_buttons
       Vote
 - else

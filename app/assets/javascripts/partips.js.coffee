@@ -1,7 +1,13 @@
 $ ->
   $('.vote-trigger').click ->
     $trigger = $ @
-    $icon = $trigger.find '.fa'
+    $icon = $('#vote-ico')
+    if $trigger.hasClass 'voted'
+      $icon.removeClass('fas fa-star')
+      $icon.addClass('far fa-star')
+    else
+      $icon.removeClass('far fa-star')
+      $icon.addClass('fas fa-star')
     $badge = $trigger
       .parents '.actions'
       .siblings '.badge'
