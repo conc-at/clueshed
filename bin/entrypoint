@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+rails db:migrate
+rails assets:precompile
+
+exec "$@"
