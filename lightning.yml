@@ -7,7 +7,7 @@ services:
     entrypoint: ["bin/entrypoint"]
     command: ["rails", "s", "-b", "0.0.0.0", "-p", "3000"]
     ports:
-      - "6080:3000"
+      - "5080:3000"
     volumes:
       - "/var/www/lightning.conc.at/public:/app/public"
       - "/var/www/lightning.conc.at/log:/app/log"
