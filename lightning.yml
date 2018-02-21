@@ -1,0 +1,26 @@
+version: "3.1"
+
+services:
+
+  web:
+    build: "."
+    entrypoint: ["bin/entrypoint"]
+    command: ["rails", "s", "-b", "0.0.0.0", "-p", "3000"]
+    ports:
+      - "6080:3000"
+    volumes:
+      - "/var/www/lightning.conc.at/public:/app/public"
+      - "/var/www/lightning.conc.at/log:/app/log"
+    env_file:
+      - ".env"
+    depends_on:
+      - "db"
+    restart: "always"
+
+  db:
+    image: "mdillon/postgis:9.6-alpine"
+    volumes:
+      - "/var/www/lightning.conc.at/data/db:/var/lib/postgresql/data"
+    env_file:
+      - ".env"
+    restart: "always"
