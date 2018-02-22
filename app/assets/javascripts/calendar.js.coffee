@@ -66,12 +66,12 @@ $ ->
         persistCal()
       header: left: '', center: '', right: ''
       height: 800,
-      minTime: '08:00:00'
-      maxTime: '24:00:00'
+      minTime: '17:20:00'
+      maxTime: '18:10:00'
       editable: yes
       defaultView: 'agendaDay'
       allDaySlot: no
-      defaultDate: '2015-07-03'
+      defaultDate: '2015-03-03'
       timeFormat: 'HH:mm',
       slotLabelFormat: 'HH:mm'
       dayNames: do -> [0...7].map -> 'Event Day'
