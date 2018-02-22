@@ -41,8 +41,8 @@
 
 .fc td,
 .fc th {
-  border-style: none !important;
-  border-width: 1px !important;
+  //border-style: none !important;
+  //border-width: 1px !important;
   padding: 0 !important;
   vertical-align: top !important;
 }
@@ -98,12 +98,12 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  outline: none;
-  border: 0;
+  //outline: none;
+  //border: 0;
   padding: 0 6px;
   margin: 6px 8px;
   letter-spacing: .01em;
-  background: transparent;
+  //background: transparent;
   color: currentColor;
   white-space: nowrap;
   text-transform: uppercase;
@@ -138,15 +138,29 @@
 /* Not raised button */
 
 .fc-state-default {
-  box-shadow: None;
+  box-shadow: none;
 }
 
 
 /* Do not bottom divider-line */
 .fc-divider {
-  display: none !important;
+  //display: none !important;
 }
 
 .fc-widget-header {
-  display: none !important;
+  //display: none !important;
+}
+
+.fc-slats {
+  tr[data-time] {
+    td:first-child {
+      display: none;
+    }
+  }
+}
+
+.fc-content {
+  .fc-time {
+    display: none !important;
+  }
 }

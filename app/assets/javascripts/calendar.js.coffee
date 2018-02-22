@@ -40,7 +40,7 @@ $ ->
           .draggable(revert: true)
           .data('event',
             title: "#{contrib.title} by #{contrib.user.username}"
-            duration: '00:30'
+            duration: '01:00'
             id: contrib.id
           )
           .addClass('list-group-item')
@@ -66,8 +66,8 @@ $ ->
         persistCal()
       header: left: '', center: '', right: ''
       height: 800,
-      minTime: '17:20:00'
-      maxTime: '18:10:00'
+      minTime: '07:00:00'
+      maxTime: '22:00:00'
       editable: yes
       defaultView: 'agendaDay'
       allDaySlot: no

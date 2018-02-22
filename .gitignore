@@ -23,4 +23,5 @@
 /config/application.yml
 .env
 
-.vscode
+# Data
+data/db/
