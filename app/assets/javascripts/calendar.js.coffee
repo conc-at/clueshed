@@ -71,7 +71,7 @@ $ ->
       editable: yes
       defaultView: 'agendaDay'
       allDaySlot: no
-      defaultDate: '2015-03-03'
+      defaultDate: '2018-03-03'
       timeFormat: 'HH:mm',
       slotLabelFormat: 'HH:mm'
       dayNames: do -> [0...7].map -> 'Event Day'
