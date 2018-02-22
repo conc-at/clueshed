@@ -232,7 +232,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :github, ENV['github_key'], ENV['github_secret'], scope: 'read:user'
+  config.omniauth :github, ENV['github_key'], ENV['github_secret'], scope: 'read:user,user:email'
   config.omniauth :twitter, ENV['twitter_key'], ENV['twitter_secret']
 
   # ==> Warden configuration
