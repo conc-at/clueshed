@@ -33,7 +33,6 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li= link_to 'Home', :root
-            %li= link_to 'Calender', calendar_index_path
             %li= link_to 'Legal', @config[:legal] if @config[:legal]
             %li
               =link_to @config[:website], target: '_blank' do
