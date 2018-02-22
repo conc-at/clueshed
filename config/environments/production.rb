@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.app_domain = 'clueshed2018.herokuapp.com'
+  config.app_domain = ENV["APP_DOMAIN"]
 
   # Code is not reloaded between requests.
   config.cache_classes = true
