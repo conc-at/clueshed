@@ -2,7 +2,6 @@
 #calendar {
   position: absolute;
   z-index: 2;
-
   .fc-event .fc-bg {
     background: #e40138 !important;
   }
@@ -97,13 +96,11 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
-  //outline: none;
+  user-select: none; //outline: none;
   //border: 0;
   padding: 0 6px;
   margin: 6px 8px;
-  letter-spacing: .01em;
-  //background: transparent;
+  letter-spacing: .01em; //background: transparent;
   color: currentColor;
   white-space: nowrap;
   text-transform: uppercase;
@@ -143,6 +140,7 @@
 
 
 /* Do not bottom divider-line */
+
 .fc-divider {
   //display: none !important;
 }
@@ -156,6 +154,20 @@
     td:first-child {
       display: none;
     }
+  }
+}
+
+a.fa,
+a .fa {
+  text-decoration: none !important;
+}
+
+.vote-trigger {
+  .fa:before {
+    content: "\2606";
+  }
+  &.voted .fa:before {
+    content: "\2605";
   }
 }
 
