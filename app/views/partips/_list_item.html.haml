@@ -5,7 +5,3 @@
   %span.badge{"aria-label" => "Number of Votes"}= partip.votes.length if partip.votes.length > 0
   %span.text-label
     = link_to partip.title, partip
-    - unless defined? no_attribution and no_attribution
-      %small
-        by
-        = link_to partip.user.username, user_path(:username => partip.user.username)

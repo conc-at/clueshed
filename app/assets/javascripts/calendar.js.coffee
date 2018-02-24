@@ -39,17 +39,13 @@ $ ->
         $('<div>')
           .draggable(revert: true)
           .data('event',
-            title: "#{contrib.title} by #{contrib.user.username}"
+            title: "#{contrib.title}"
             duration: '01:00'
             id: contrib.id
           )
           .addClass('list-group-item')
           .attr('id', "event-#{contrib.id}")
           .text(contrib.title)
-        .append(
-          $('<small>')
-            .text(" by #{contrib.user.username}")
-          )
         .append(
           $('<span>')
             .addClass('badge')

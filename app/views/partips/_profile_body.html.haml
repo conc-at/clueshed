@@ -7,9 +7,6 @@
     .actions= render 'actions', partip: partip
   %span.badge= partip.votes.length if partip.votes.length > 0
   %span
-    Created by
-    #{link_to partip.user.username, user_path(:username => partip.user.username)}
-    on
     #{partip.created_at.strftime("%A, %d %B %Y")}
     - unless partip.created_at ==  partip.updated_at
       and last updated on #{partip.updated_at.strftime("%A, %d %B %Y")}
