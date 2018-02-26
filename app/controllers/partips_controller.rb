@@ -104,6 +104,6 @@ class PartipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def partip_params
-      params.require(instance_name.to_sym).permit(:title, :description, :interest_id)
+      params.require(instance_name.to_sym).permit(:title, :description, :first_time_speaker, :interest_id)
     end
 end
