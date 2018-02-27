@@ -2,5 +2,5 @@
   = f.hidden_field :interest_id if defined? partip.interest
   = f.input :title
   = f.input :description, as: :text, hint: 'Markdown allowed'
-  = f.input :first_time_speaker, inline_label: 'First-time speaker'
+  = f.input :first_time_speaker, inline_label: 'First-time speaker' if defined? partip.interest
   = f.button :submit
